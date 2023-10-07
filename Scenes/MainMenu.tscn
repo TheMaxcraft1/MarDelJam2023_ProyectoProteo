@@ -69,6 +69,7 @@ texture_pressed = ExtResource("9_6ix8t")
 texture_hover = ExtResource("10_p75ct")
 
 [node name="CreditosContainer" type="MarginContainer" parent="."]
+visible = false
 offset_top = 128.0
 offset_right = 480.0
 offset_bottom = 225.0
@@ -144,4 +145,13 @@ theme_override_fonts/font = ExtResource("12_o3qwu")
 theme_override_font_sizes/font_size = 16
 text = "Nadie xd"
 
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_mouse_entered"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
+[connection signal="mouse_entered" from="MainContainer/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_mouse_entered"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_pressed"]
+[connection signal="mouse_entered" from="MainContainer/VBoxContainer/CreditosButton" to="." method="_on_creditos_button_mouse_entered"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/CreditosButton" to="." method="_on_creditos_button_pressed"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqebi8as86bda"]
+[gd_scene load_steps=15 format=3 uid="uid://dqebi8as86bda"]
 
 [ext_resource type="FontFile" uid="uid://bldwkf231s5jw" path="res://Fonts/superstar_memesbruh03.ttf" id="1_4ho5x"]
-[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_tr7ho"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_q0t8m"]
 [ext_resource type="Texture2D" uid="uid://45a1u32eybi4" path="res://Sprites/Buttons/boton normal JUGAR.png" id="2_3jbxu"]
 [ext_resource type="Texture2D" uid="uid://rberqcnkygm2" path="res://Sprites/Buttons/boton pressed JUGAR.png" id="3_cth7v"]
 [ext_resource type="Texture2D" uid="uid://d1wx7k7nbfvun" path="res://Sprites/Buttons/boton hover JUGAR.png" id="4_kkn05"]
@@ -12,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cw8td121gfnwq" path="res://Sprites/Buttons/boton pressed CREDITOS.png" id="9_6ix8t"]
 [ext_resource type="Texture2D" uid="uid://4vtabhad8e2y" path="res://Sprites/Buttons/boton hover CREDITOS.png" id="10_p75ct"]
 [ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_o3qwu"]
+[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="13_62nfd"]
+[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="14_gbi74"]
 
 [node name="MainMenu" type="Node2D"]
-script = ExtResource("1_tr7ho")
+script = ExtResource("1_q0t8m")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 480.0
@@ -146,8 +148,10 @@ theme_override_font_sizes/font_size = 16
 text = "Nadie xd"
 
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_62nfd")
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_gbi74")
 
 [connection signal="mouse_entered" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]

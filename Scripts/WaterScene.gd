@@ -9,6 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$HUD/ScoreLabel.set_text(str(score))
+	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(score))
 
 

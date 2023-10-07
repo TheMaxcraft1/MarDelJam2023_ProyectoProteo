@@ -30,12 +30,12 @@ func _on_jugar_button_pressed():
 
 
 func _on_jugar_button_mouse_entered():
-	$ButtonPressed.play()
+	$ButtonHover.play()
 
 
 func _on_opciones_button_mouse_entered():
-	$ButtonPressed.play()
+	$ButtonHover.play()
 
 
 func _on_creditos_button_mouse_entered():
-	$ButtonPressed.play()
+	$ButtonHover.play()

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=11 format=3 uid="uid://m67xm0p2b4aw"]
 
 [ext_resource type="Script" path="res://Scripts/WaterScene.gd" id="1_hfbdb"]
 [ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
 [ext_resource type="Texture2D" uid="uid://baumyb6r6coc0" path="res://Sprites/Turtle/Turtle_3.PNG" id="3_uai2c"]
 [ext_resource type="Texture2D" uid="uid://di26j1l8yhqha" path="res://Sprites/Turtle/Turtle_2.PNG" id="4_lu3mu"]
 [ext_resource type="Script" path="res://Scripts/WaterPlayerMovement.gd" id="5_l1cf1"]
+[ext_resource type="PackedScene" uid="uid://1ncju2en041h" path="res://Scenes/WaterObstacle.tscn" id="6_iqf1n"]
+[ext_resource type="Script" path="res://Scripts/ObstacleSpawner.gd" id="7_oa1yh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_600f4"]
 animations = [{
@@ -24,7 +26,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gep77"]
-size = Vector2(78, 60)
+size = Vector2(78, 49)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_52wo7"]
+emission_shape = 1
+emission_sphere_radius = 12.14
+particle_flag_disable_z = true
+spread = 20.37
+gravity = Vector3(0, 10, 0)
+initial_velocity_max = 1.3
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 1.5
+scale_max = 2.0
+color = Color(0.47451, 0.611765, 0.458824, 1)
+hue_variation_min = -0.08
+hue_variation_max = 0.04
 
 [node name="WaterScene" type="Node2D"]
 script = ExtResource("1_hfbdb")
@@ -46,5 +63,39 @@ animation = &"idle"
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2(1, 4)
+position = Vector2(1, 9.5)
 shape = SubResource("RectangleShape2D_gep77")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Player"]
+position = Vector2(-3, 33)
+amount = 18
+process_material = SubResource("ParticleProcessMaterial_52wo7")
+lifetime = 0.3
+
+[node name="Obstacle" parent="." instance=ExtResource("6_iqf1n")]
+position = Vector2(-224, -4)
+scale = Vector2(2, 5)
+
+[node name="Obstacle2" parent="." instance=ExtResource("6_iqf1n")]
+position = Vector2(-110, 20)
+scale = Vector2(2, 5)
+
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+position = Vector2(552, 0)
+script = ExtResource("7_oa1yh")
+obstacleScene = ExtResource("6_iqf1n")
+
+[node name="SpawnerTimer" type="Timer" parent="ObstacleSpawner"]
+wait_time = 3.0
+autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="ObstacleSpawner/SpawnerTimer" to="ObstacleSpawner" method="_on_timer_timeout"]

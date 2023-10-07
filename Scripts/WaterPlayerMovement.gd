@@ -12,6 +12,7 @@ func _physics_process(delta):
 		dy += GRAVITY * delta
 		if Input.is_action_just_pressed("WaterJump"):
 			dy -= 20
+		
 
 		if dy > MAXFALLSPEED:
 			dy = 50
@@ -28,3 +29,10 @@ func _physics_process(delta):
 
 func _process(delta):
 	pass
+
+
+func _on_area_2d_area_entered(area):
+	if area.name == "WallArea":
+		canMove = false
+	if area.name == "ScoreArea":
+		get_parent().score += 1

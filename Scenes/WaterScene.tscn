@@ -1,8 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=8 format=3 uid="uid://m67xm0p2b4aw"]
 
 [ext_resource type="Script" path="res://Scripts/WaterScene.gd" id="1_hfbdb"]
-[ext_resource type="Texture2D" uid="uid://dqg2sp2mcc1ik" path="res://Sprites/Godot_Texture.png" id="2_yov8d"]
-[ext_resource type="Script" path="res://Scenes/WaterPlayerMovement.gd" id="3_vbt4g"]
+[ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
+[ext_resource type="Texture2D" uid="uid://baumyb6r6coc0" path="res://Sprites/Turtle/Turtle_3.PNG" id="3_uai2c"]
+[ext_resource type="Texture2D" uid="uid://di26j1l8yhqha" path="res://Sprites/Turtle/Turtle_2.PNG" id="4_lu3mu"]
+[ext_resource type="Script" path="res://Scripts/WaterPlayerMovement.gd" id="5_l1cf1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_600f4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_01hcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uai2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lu3mu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gep77"]
+size = Vector2(78, 60)
 
 [node name="WaterScene" type="Node2D"]
 script = ExtResource("1_hfbdb")
@@ -12,8 +34,17 @@ offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0.129412, 0.811765, 0.776471, 0.337255)
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(50, 135)
-scale = Vector2(0.1225, 0.1225)
-texture = ExtResource("2_yov8d")
-script = ExtResource("3_vbt4g")
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(115, 135)
+script = ExtResource("5_l1cf1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_600f4")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_gep77")

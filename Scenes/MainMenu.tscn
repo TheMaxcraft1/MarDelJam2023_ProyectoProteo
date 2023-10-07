@@ -1,44 +1,157 @@
-[gd_scene format=3 uid="uid://dqebi8as86bda"]
+[gd_scene load_steps=13 format=3 uid="uid://dqebi8as86bda"]
+
+[ext_resource type="FontFile" uid="uid://bldwkf231s5jw" path="res://Fonts/superstar_memesbruh03.ttf" id="1_4ho5x"]
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_tr7ho"]
+[ext_resource type="Texture2D" uid="uid://45a1u32eybi4" path="res://Sprites/Buttons/boton normal JUGAR.png" id="2_3jbxu"]
+[ext_resource type="Texture2D" uid="uid://rberqcnkygm2" path="res://Sprites/Buttons/boton pressed JUGAR.png" id="3_cth7v"]
+[ext_resource type="Texture2D" uid="uid://d1wx7k7nbfvun" path="res://Sprites/Buttons/boton hover JUGAR.png" id="4_kkn05"]
+[ext_resource type="Texture2D" uid="uid://cmvrko0b0cmhb" path="res://Sprites/Buttons/boton normal OPCIONES.png" id="5_rryje"]
+[ext_resource type="Texture2D" uid="uid://cp4y6d68qg2s4" path="res://Sprites/Buttons/boton pressed opciones.png" id="6_73lpx"]
+[ext_resource type="Texture2D" uid="uid://bbp7vkvl5vy0f" path="res://Sprites/Buttons/boton hover OPCIONES.png" id="7_b2tkr"]
+[ext_resource type="Texture2D" uid="uid://c8pu0a5esjx3o" path="res://Sprites/Buttons/boton normal CREDITOS.png" id="8_i1wxb"]
+[ext_resource type="Texture2D" uid="uid://cw8td121gfnwq" path="res://Sprites/Buttons/boton pressed CREDITOS.png" id="9_6ix8t"]
+[ext_resource type="Texture2D" uid="uid://4vtabhad8e2y" path="res://Sprites/Buttons/boton hover CREDITOS.png" id="10_p75ct"]
+[ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_o3qwu"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_tr7ho")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 272.0
+color = Color(0.447059, 0.631373, 0.898039, 1)
+
+[node name="TituloContainer" type="MarginContainer" parent="."]
 offset_right = 469.0
-offset_bottom = 143.0
+offset_bottom = 128.0
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="TituloContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("1_4ho5x")
+theme_override_font_sizes/font_size = 60
 text = "PROYECTO PROTEO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MainContainer" type="MarginContainer" parent="."]
 offset_top = 128.0
 offset_right = 480.0
 offset_bottom = 273.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 42
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="JugarButton" type="Button" parent="MarginContainer2/VBoxContainer"]
+[node name="JugarButton" type="TextureButton" parent="MainContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
-text = "JUGAR"
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_3jbxu")
+texture_pressed = ExtResource("3_cth7v")
+texture_hover = ExtResource("4_kkn05")
 
-[node name="OpcionesButton" type="Button" parent="MarginContainer2/VBoxContainer"]
+[node name="OpcionesButton" type="TextureButton" parent="MainContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
-text = "OPCIONES"
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_rryje")
+texture_pressed = ExtResource("6_73lpx")
+texture_hover = ExtResource("7_b2tkr")
 
-[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer"]
+[node name="CreditosButton" type="TextureButton" parent="MainContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 25
-text = "CRÉDITOS"
+size_flags_horizontal = 4
+texture_normal = ExtResource("8_i1wxb")
+texture_pressed = ExtResource("9_6ix8t")
+texture_hover = ExtResource("10_p75ct")
+
+[node name="CreditosContainer" type="MarginContainer" parent="."]
+visible = false
+offset_top = 128.0
+offset_right = 480.0
+offset_bottom = 225.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 0
+
+[node name="GridContainer" type="GridContainer" parent="CreditosContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 75
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="ProgramacionLabel" type="Label" parent="CreditosContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 20
+text = "Programación"
+horizontal_alignment = 1
+
+[node name="ArteLabel" type="Label" parent="CreditosContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 20
+text = "Arte"
+horizontal_alignment = 1
+
+[node name="MusicaLabel" type="Label" parent="CreditosContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 20
+text = "Música"
+horizontal_alignment = 1
+
+[node name="ProgramadoresLabel" type="Label" parent="CreditosContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 16
+text = "Abigail Alegre
+Nicolás Vera
+Máximo Fain"
+horizontal_alignment = 1
+
+[node name="ArtistasLabel" type="Label" parent="CreditosContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 16
+text = "Paz Rozen
+Yamil Tahuil"
+
+[node name="MusicosLabel" type="Label" parent="CreditosContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 16
+text = "Nadie xd"
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_mouse_entered"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
+[connection signal="mouse_entered" from="MainContainer/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_mouse_entered"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_pressed"]
+[connection signal="mouse_entered" from="MainContainer/VBoxContainer/CreditosButton" to="." method="_on_creditos_button_mouse_entered"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/CreditosButton" to="." method="_on_creditos_button_pressed"]

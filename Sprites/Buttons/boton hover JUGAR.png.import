@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1wx7k7nbfvun"
-path="res://.godot/imported/boton hover JUGAR.png-91c97c2150285251a9092ed424d33600.ctex"
+path="res://.godot/imported/boton hover JUGAR.png-7f832cadc9a01603b85caf9c6397f0f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buttons/boton hover JUGAR.png"
-dest_files=["res://.godot/imported/boton hover JUGAR.png-91c97c2150285251a9092ed424d33600.ctex"]
+source_file="res://Sprites/Buttons/boton hover JUGAR.png"
+dest_files=["res://.godot/imported/boton hover JUGAR.png-7f832cadc9a01603b85caf9c6397f0f8.ctex"]
 
 [params]
 

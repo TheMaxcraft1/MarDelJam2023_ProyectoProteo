@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://45a1u32eybi4"
-path="res://.godot/imported/boton normal JUGAR.png-a4e0c482ab3b244b7a7fc775ce627310.ctex"
+path="res://.godot/imported/boton normal JUGAR.png-a682c186139e6a36a5a9770d81e4dd00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buttons/boton normal JUGAR.png"
-dest_files=["res://.godot/imported/boton normal JUGAR.png-a4e0c482ab3b244b7a7fc775ce627310.ctex"]
+source_file="res://Sprites/Buttons/boton normal JUGAR.png"
+dest_files=["res://.godot/imported/boton normal JUGAR.png-a682c186139e6a36a5a9770d81e4dd00.ctex"]
 
 [params]
 

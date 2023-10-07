@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crnq272o30ccj"
-path="res://.godot/imported/boton pressed salir.png-4da13f52fdfb1ad6c8df48aa37b187a1.ctex"
+path="res://.godot/imported/boton pressed salir.png-4254f347ead39203bd69885ec02e2b19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buttons/boton pressed salir.png"
-dest_files=["res://.godot/imported/boton pressed salir.png-4da13f52fdfb1ad6c8df48aa37b187a1.ctex"]
+source_file="res://Sprites/Buttons/boton pressed salir.png"
+dest_files=["res://.godot/imported/boton pressed salir.png-4254f347ead39203bd69885ec02e2b19.ctex"]
 
 [params]
 

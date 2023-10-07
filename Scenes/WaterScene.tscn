@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=4 format=3 uid="uid://m67xm0p2b4aw"]
+
+[ext_resource type="Script" path="res://Scripts/WaterScene.gd" id="1_hfbdb"]
+[ext_resource type="Texture2D" uid="uid://dqg2sp2mcc1ik" path="res://Sprites/Godot_Texture.png" id="2_yov8d"]
+[ext_resource type="Script" path="res://Scenes/WaterPlayerMovement.gd" id="3_vbt4g"]
 
 [node name="WaterScene" type="Node2D"]
+script = ExtResource("1_hfbdb")
+
+[node name="Water" type="ColorRect" parent="."]
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.129412, 0.811765, 0.776471, 0.337255)
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(50, 135)
+scale = Vector2(0.1225, 0.1225)
+texture = ExtResource("2_yov8d")
+script = ExtResource("3_vbt4g")

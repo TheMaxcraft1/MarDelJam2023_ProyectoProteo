@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://du4egnw0pwi1r"]
+
+[ext_resource type="Texture2D" uid="uid://bp6lde8tew3x7" path="res://Sprites/Capybara/Capybara_1.PNG" id="1_5f5l6"]
+[ext_resource type="Script" path="res://Scripts/LandScene.gd" id="1_gu3qg"]
+[ext_resource type="Script" path="res://Scripts/LandPlayerMovement.gd" id="2_gxlkp"]
+[ext_resource type="Texture2D" uid="uid://cx3cmy5f36iwd" path="res://Sprites/Capybara/Capybara_2.PNG" id="2_qhiwe"]
+[ext_resource type="Texture2D" uid="uid://cpcw5cnmbnrsf" path="res://Sprites/Capybara/Capybara_3.PNG" id="3_w4sbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk1c1"]
+size = Vector2(480.438, 69.9126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oaknt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5f5l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qhiwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w4sbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qhiwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_5f5l6")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk4jr"]
+size = Vector2(84, 48)
+
+[node name="LandScene" type="Node2D"]
+position = Vector2(-3, -3)
+script = ExtResource("1_gu3qg")
+
+[node name="background" type="ColorRect" parent="."]
+offset_top = 2.0
+offset_right = 481.0
+offset_bottom = 270.0
+scale = Vector2(1.85303, 1.00135)
+color = Color(0.85098, 0.929412, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
+position = Vector2(240.147, 258.652)
+shape = SubResource("RectangleShape2D_jk1c1")
+
+[node name="floor" type="ColorRect" parent="background/StaticBody2D"]
+offset_left = -1.0
+offset_top = 219.0
+offset_right = 481.0
+offset_bottom = 278.0
+color = Color(0.588235, 0.215686, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerCarpincho" type="CharacterBody2D" parent="."]
+position = Vector2(50, 0)
+scale = Vector2(1.00554, 0.994471)
+script = ExtResource("2_gxlkp")
+jump_speed = 200.0
+gravity = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerCarpincho"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCarpincho"]
+position = Vector2(153, 132)
+sprite_frames = SubResource("SpriteFrames_oaknt")
+animation = &"jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho"]
+position = Vector2(154.147, 203.123)
+shape = SubResource("RectangleShape2D_dk4jr")

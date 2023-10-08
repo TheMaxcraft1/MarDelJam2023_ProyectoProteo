@@ -43,6 +43,8 @@ func _on_area_2d_area_entered(area):
 	if area.name == "WallArea":
 		canMove = false
 		hitSound.play()
+		get_parent().get_node("HUD/DeathMenu").set_visible(true)
+		get_parent().get_node("ObstacleSpawner").canSpawn = false
 	if area.name == "ScoreArea":
 		scoreUpSound.play()
 		ScoreController.score_up()

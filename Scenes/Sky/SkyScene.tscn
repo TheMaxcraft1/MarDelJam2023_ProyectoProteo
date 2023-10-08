@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://doynxgm3c2w2k"]
+[gd_scene load_steps=26 format=3 uid="uid://doynxgm3c2w2k"]
 
 [ext_resource type="Script" path="res://Scripts/Sky/SkyScene.gd" id="1_2s3p8"]
 [ext_resource type="Texture2D" uid="uid://cj2mswasb0op" path="res://Sprites/SkyScene/IMG_1325.PNG" id="2_ymd2s"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://gwtcxclvqi4" path="res://Scenes/Sky/obstacle_spawner.tscn" id="18_bjdhc"]
 [ext_resource type="PackedScene" uid="uid://b5ig04rky21f0" path="res://Scenes/Sky/ParrotScene.tscn" id="19_0n404"]
 [ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="20_alpsg"]
+[ext_resource type="AudioStream" uid="uid://cri6y1mior734" path="res://Sounds/ParrotFly.wav" id="21_blhja"]
+[ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="22_hcg5y"]
+[ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="23_7jwpf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7idt8"]
 animations = [{
@@ -109,3 +112,12 @@ position = Vector2(184, 141)
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_d1nw8")
+
+[node name="FlySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_blhja")
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_hcg5y")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_7jwpf")

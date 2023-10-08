@@ -4,9 +4,19 @@ extends CharacterBody2D
 var GRAVITY=15
 @onready var _animated_sprite = $AnimatedSprite2D
 var move=true
+var flySound
+var scoreSound
+var hitSound
 
+func _ready():
+	flySound=get_parent().get_node("FlySound")
+	scoreSound=get_parent().get_node("ScoreSound")
+	hitSound=get_parent().get_node("HitSound")
+	
 func get_input():
-	var input_direction = Input.get_vector("", "", "", "input")
+	var input_direction = Input.get_vector("", "", "", "WaterJump")
+	if Input.is_action_just_pressed("WaterJump"):
+		flySound.play()
 	coll(input_direction)
 	
 
@@ -18,7 +28,12 @@ func coll(charac):
 	if position.y>=250:
 		speed=speed*-1
 		GRAVITY*=-1
-		
+	
+	if 15>=position.y:
+		position.y=40
+	if position.y>=255:
+		position.y=245
+	print("POSICION Y: ",position.y)
 	velocity=charac*speed
 	velocity.y+=GRAVITY
 		
@@ -35,6 +50,8 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("obstacle"):
+		hitSound.play()
 		move=false
 	else:
+		scoreSound.play()
 		get_parent().score+=1

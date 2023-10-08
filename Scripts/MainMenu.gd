@@ -4,6 +4,7 @@ var scene_list = ["res://Scenes/WaterScene.tscn"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicController.play_main_menu_music()
+	ScoreController.set_score(0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +28,7 @@ func _on_jugar_button_pressed():
 	$ButtonPressed.play()
 	await $ButtonPressed.finished
 	#get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
+	SceneTransition.change_scene(scene_list[randi() % scene_list.size()])
 
 
 func _on_jugar_button_mouse_entered():

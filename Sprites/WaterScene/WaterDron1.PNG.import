@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbeo2t7shs87o"
-path="res://.godot/imported/BOTON pressed salir.png-f6b6d057a9a5f838b53adfda4c02ab5c.ctex"
+uid="uid://dmxj3eiwefwvb"
+path="res://.godot/imported/WaterDron1.PNG-57bb029eae061dac9850219415614713.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buttons/BOTON pressed salir.png"
-dest_files=["res://.godot/imported/BOTON pressed salir.png-f6b6d057a9a5f838b53adfda4c02ab5c.ctex"]
+source_file="res://Sprites/WaterScene/WaterDron1.PNG"
+dest_files=["res://.godot/imported/WaterDron1.PNG-57bb029eae061dac9850219415614713.ctex"]
 
 [params]
 

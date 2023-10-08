@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v8cb2iwn7lj"
-path="res://.godot/imported/boton normal SALIR.png-797eceb368677e4a3f037b2f0b719367.ctex"
+uid="uid://bi4fxdb612x8"
+path="res://.godot/imported/boton normal salir.png-7ac5a7ad19327bc07d161e110d283a95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buttons/boton normal SALIR.png"
-dest_files=["res://.godot/imported/boton normal SALIR.png-797eceb368677e4a3f037b2f0b719367.ctex"]
+source_file="res://Sprites/Buttons/boton normal salir.png"
+dest_files=["res://.godot/imported/boton normal salir.png-7ac5a7ad19327bc07d161e110d283a95.ctex"]
 
 [params]
 

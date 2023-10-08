@@ -8,9 +8,13 @@ func _ready():
 	$Player.canMove = true
 	$TextureRect/AnimationPlayer.play("Algae_Movement_Animation")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
 
+func _on_texture_button_pressed():
+	$ButtonPressed.play()
+	SceneTransition.change_scene("res://Scenes/MainMenu.tscn")
 
+func _on_texture_button_mouse_entered():
+	$ButtonHover.play()

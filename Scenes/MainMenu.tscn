@@ -306,7 +306,7 @@ vertical_alignment = 1
 position = Vector2(240, 136)
 sprite_frames = SubResource("SpriteFrames_7r1lp")
 autoplay = "default"
-frame_progress = 0.863331
+frame_progress = 0.00429835
 
 [node name="MainContainer" type="MarginContainer" parent="."]
 offset_top = 128.0

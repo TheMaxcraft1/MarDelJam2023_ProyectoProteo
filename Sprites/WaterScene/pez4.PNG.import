@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbeo2t7shs87o"
-path="res://.godot/imported/BOTON pressed salir.png-f6b6d057a9a5f838b53adfda4c02ab5c.ctex"
+uid="uid://df2mu7qdaxacm"
+path="res://.godot/imported/pez4.PNG-cd018c73233ae93eddacb2d8729116b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buttons/BOTON pressed salir.png"
-dest_files=["res://.godot/imported/BOTON pressed salir.png-f6b6d057a9a5f838b53adfda4c02ab5c.ctex"]
+source_file="res://Sprites/WaterScene/pez4.PNG"
+dest_files=["res://.godot/imported/pez4.PNG-cd018c73233ae93eddacb2d8729116b8.ctex"]
 
 [params]
 

@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://dtn82yi2c1j8g"]
+[gd_scene load_steps=6 format=3 uid="uid://dtn82yi2c1j8g"]
 
-[node name="LandObstacle" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dkhyo2vo5rj7i" path="res://Sprites/Capybara/casa b.PNG" id="2_56c2v"]
+[ext_resource type="Texture2D" uid="uid://bmiljb2rpwlr8" path="res://Sprites/Capybara/palmera a.PNG" id="3_ttet5"]
+[ext_resource type="Texture2D" uid="uid://ddusp0tkkupw7" path="res://Sprites/Capybara/arbusto 2.PNG" id="5_2tcyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2y02"]
+size = Vector2(47, 126.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f5of"]
+size = Vector2(135.75, 134)
+
+[node name="LandObstacle" type="Sprite2D"]
+
+[node name="PalmeraA" type="Sprite2D" parent="."]
+position = Vector2(361, 137)
+texture = ExtResource("3_ttet5")
+
+[node name="Arbusto2" type="Sprite2D" parent="."]
+position = Vector2(329, 165)
+texture = ExtResource("5_2tcyx")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+position = Vector2(-423, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(537.5, 63.625)
+shape = SubResource("RectangleShape2D_r2y02")
+
+[node name="WallArea" type="Area2D" parent="."]
+position = Vector2(-422, 1)
+
+[node name="CasaB" type="CollisionShape2D" parent="WallArea"]
+position = Vector2(494.125, 195)
+shape = SubResource("RectangleShape2D_3f5of")
+
+[node name="CasaB2" type="Sprite2D" parent="WallArea"]
+position = Vector2(375, 141)
+texture = ExtResource("2_56c2v")

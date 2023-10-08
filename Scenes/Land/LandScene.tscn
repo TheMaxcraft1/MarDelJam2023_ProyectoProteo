@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://du4egnw0pwi1r"]
+[gd_scene load_steps=15 format=3 uid="uid://du4egnw0pwi1r"]
 
 [ext_resource type="Texture2D" uid="uid://bp6lde8tew3x7" path="res://Sprites/Capybara/Capybara_1.PNG" id="1_5f5l6"]
 [ext_resource type="Script" path="res://Scripts/LandScene.gd" id="1_gu3qg"]
 [ext_resource type="Script" path="res://Scripts/LandPlayerMovement.gd" id="2_gxlkp"]
+[ext_resource type="Texture2D" uid="uid://kwqkcmmuxdat" path="res://Sprites/Capybara/fondo.PNG" id="2_nyr4u"]
 [ext_resource type="Texture2D" uid="uid://cx3cmy5f36iwd" path="res://Sprites/Capybara/Capybara_2.PNG" id="2_qhiwe"]
+[ext_resource type="Texture2D" uid="uid://bv2pbvhcue24i" path="res://Sprites/Capybara/piso.PNG" id="3_le0gm"]
 [ext_resource type="Texture2D" uid="uid://cpcw5cnmbnrsf" path="res://Sprites/Capybara/Capybara_3.PNG" id="3_w4sbb"]
+[ext_resource type="Texture2D" uid="uid://c728hx3gbmis1" path="res://Sprites/Capybara/nube a.PNG" id="8_sim76"]
+[ext_resource type="Texture2D" uid="uid://cipqmsw4n6dlk" path="res://Sprites/Capybara/nube b.PNG" id="9_ghis8"]
+[ext_resource type="Script" path="res://Scripts/ObstacleSpawnerLand.gd" id="10_qvdah"]
+[ext_resource type="PackedScene" uid="uid://dtn82yi2c1j8g" path="res://Scenes/Land/LandObstacle.tscn" id="11_4qvfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk1c1"]
 size = Vector2(480.438, 69.9126)
@@ -48,9 +54,14 @@ script = ExtResource("1_gu3qg")
 offset_top = 2.0
 offset_right = 481.0
 offset_bottom = 270.0
-scale = Vector2(1.85303, 1.00135)
+scale = Vector2(1.88555, 1.00135)
 color = Color(0.85098, 0.929412, 1, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Fondo" type="Sprite2D" parent="background"]
+position = Vector2(163.516, 131.822)
+scale = Vector2(0.7079, 1.01076)
+texture = ExtResource("2_nyr4u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="background"]
 
@@ -59,12 +70,28 @@ position = Vector2(240.147, 258.652)
 shape = SubResource("RectangleShape2D_jk1c1")
 
 [node name="floor" type="ColorRect" parent="background/StaticBody2D"]
-offset_left = -1.0
-offset_top = 219.0
-offset_right = 481.0
-offset_bottom = 278.0
-color = Color(0.588235, 0.215686, 0, 1)
+offset_left = -5.83383
+offset_top = 220.703
+offset_right = 476.166
+offset_bottom = 279.703
+scale = Vector2(0.707635, 1.25839)
+color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
+
+[node name="Piso" type="Sprite2D" parent="background"]
+position = Vector2(197.82, 129.825)
+scale = Vector2(0.851185, 1.06455)
+texture = ExtResource("3_le0gm")
+
+[node name="NubeB" type="Sprite2D" parent="background"]
+position = Vector2(182.44, 137.814)
+scale = Vector2(0.530348, 0.998654)
+texture = ExtResource("9_ghis8")
+
+[node name="NubeA" type="Sprite2D" parent="background"]
+position = Vector2(70.006, 116.843)
+scale = Vector2(0.530348, 0.998654)
+texture = ExtResource("8_sim76")
 
 [node name="PlayerCarpincho" type="CharacterBody2D" parent="."]
 position = Vector2(50, 0)
@@ -79,8 +106,17 @@ gravity = 200.0
 position = Vector2(153, 132)
 sprite_frames = SubResource("SpriteFrames_oaknt")
 animation = &"jump"
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho"]
 position = Vector2(154.147, 203.123)
 shape = SubResource("RectangleShape2D_dk4jr")
+
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+script = ExtResource("10_qvdah")
+obstacle_scene = ExtResource("11_4qvfs")
+
+[node name="Timer" type="Timer" parent="ObstacleSpawner"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]

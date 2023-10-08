@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var canJump = false
 var speed_y = 0
+var capibaraJump
 
 func _ready():
 	animatedSprite.play("jump")
@@ -31,3 +32,12 @@ func _physics_process(delta):
 
 func _process(delta):
 	pass
+	
+func _on_area_2d_area_entered(area):
+	if area.name == "WallArea":
+		canJump = false
+		print('choco pared')
+
+	if area.name == "ScoreArea":
+		print('puntone')
+

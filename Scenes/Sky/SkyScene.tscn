@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c0nlxt5ru6yr8" path="res://Sprites/Dron/IMG_1371.PNG" id="15_bo4no"]
 [ext_resource type="Texture2D" uid="uid://bqsx7ci7c1t7l" path="res://Sprites/Dron/IMG_1372.PNG" id="16_idoro"]
 [ext_resource type="Texture2D" uid="uid://b0e2chbhrn4k0" path="res://Sprites/Dron/IMG_1373.PNG" id="17_4l4tt"]
-[ext_resource type="PackedScene" uid="uid://c0u2u2t2uqjwy" path="res://Scenes/Sky/obstacle_spawner.tscn" id="18_bjdhc"]
+[ext_resource type="PackedScene" uid="uid://gwtcxclvqi4" path="res://Scenes/Sky/obstacle_spawner.tscn" id="18_bjdhc"]
 [ext_resource type="PackedScene" uid="uid://b5ig04rky21f0" path="res://Scenes/Sky/ParrotScene.tscn" id="19_0n404"]
 [ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="20_alpsg"]
 

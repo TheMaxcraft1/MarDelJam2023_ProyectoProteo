@@ -1,19 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://1ncju2en041h"]
 
-[ext_resource type="Texture2D" uid="uid://i042td0f0m6o" path="res://Sprites/SimilRed.png" id="1_8856n"]
+[ext_resource type="Texture2D" uid="uid://bvpb6t1l7dhk6" path="res://Sprites/WaterScene/WaterObstacle.png" id="1_6oiex"]
 [ext_resource type="Script" path="res://Scripts/WaterObstacle.gd" id="2_26h84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbx1t"]
-size = Vector2(38, 39.5)
+size = Vector2(64, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5emy2"]
-size = Vector2(16, 77.5)
+size = Vector2(16, 206.75)
 
 [node name="Obstacle" type="Sprite2D"]
 texture_filter = 1
-position = Vector2(0, 48)
-scale = Vector2(1, 4)
-texture = ExtResource("1_8856n")
+texture = ExtResource("1_6oiex")
 script = ExtResource("2_26h84")
 
 [node name="WallArea" type="Area2D" parent="."]
@@ -24,5 +22,5 @@ shape = SubResource("RectangleShape2D_hbx1t")
 [node name="ScoreArea" type="Area2D" parent="."]
 
 [node name="ScoreCollisionShape" type="CollisionShape2D" parent="ScoreArea"]
-position = Vector2(0, 58.5)
+position = Vector2(0, 200.625)
 shape = SubResource("RectangleShape2D_5emy2")

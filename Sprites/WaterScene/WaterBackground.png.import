@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i042td0f0m6o"
-path="res://.godot/imported/SimilRed.png-998699f3abe6243d33d0b543ef51a7c5.ctex"
+uid="uid://dtmnxqtswfom3"
+path="res://.godot/imported/WaterBackground.png-1fda7a4bb49113f0f617a7e0f48cd2a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SimilRed.png"
-dest_files=["res://.godot/imported/SimilRed.png-998699f3abe6243d33d0b543ef51a7c5.ctex"]
+source_file="res://Sprites/WaterScene/WaterBackground.png"
+dest_files=["res://.godot/imported/WaterBackground.png-1fda7a4bb49113f0f617a7e0f48cd2a1.ctex"]
 
 [params]
 

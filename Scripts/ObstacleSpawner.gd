@@ -17,7 +17,6 @@ func _process(delta):
 func _on_timer_timeout():
 	if canSpawn:
 		var newObstacle = obstacleScene.instantiate()
-		newObstacle.set_scale(Vector2(2,5))
 		newObstacle.position.y = randi_range(-25,60)
 		add_child(newObstacle)
 		

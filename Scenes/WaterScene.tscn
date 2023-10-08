@@ -1,16 +1,58 @@
-[gd_scene load_steps=15 format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=23 format=3 uid="uid://m67xm0p2b4aw"]
 
 [ext_resource type="Script" path="res://Scripts/WaterScene.gd" id="1_hfbdb"]
 [ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
+[ext_resource type="Texture2D" uid="uid://dtmnxqtswfom3" path="res://Sprites/WaterScene/WaterBackground.png" id="2_6q0fe"]
+[ext_resource type="Texture2D" uid="uid://d2vwcvqxqylvm" path="res://Sprites/WaterScene/Algae.PNG" id="3_t1vqe"]
 [ext_resource type="Texture2D" uid="uid://baumyb6r6coc0" path="res://Sprites/Turtle/Turtle_3.PNG" id="3_uai2c"]
 [ext_resource type="Texture2D" uid="uid://di26j1l8yhqha" path="res://Sprites/Turtle/Turtle_2.PNG" id="4_lu3mu"]
 [ext_resource type="Script" path="res://Scripts/WaterPlayerMovement.gd" id="5_l1cf1"]
 [ext_resource type="PackedScene" uid="uid://1ncju2en041h" path="res://Scenes/WaterObstacle.tscn" id="6_iqf1n"]
 [ext_resource type="Script" path="res://Scripts/ObstacleSpawner.gd" id="7_oa1yh"]
+[ext_resource type="Texture2D" uid="uid://btg3ns00w47bf" path="res://Sprites/WaterScene/burbuja 2.PNG" id="8_3mb8v"]
 [ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="8_gsfkh"]
 [ext_resource type="AudioStream" uid="uid://ccew5ves41g2y" path="res://Sounds/TurtleSwim.wav" id="9_fgo4x"]
 [ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="10_43ixd"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="11_45ybe"]
+[ext_resource type="Texture2D" uid="uid://cwc77tbei3rqj" path="res://Sprites/WaterScene/burbuja 3.PNG" id="14_qth5y"]
+
+[sub_resource type="Animation" id="Animation_8o5jy"]
+resource_name = "Algae_Movement_Animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 16), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_brki6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k45rf"]
+_data = {
+"Algae_Movement_Animation": SubResource("Animation_8o5jy"),
+"RESET": SubResource("Animation_brki6")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_600f4"]
 animations = [{
@@ -32,28 +74,45 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gep77"]
 size = Vector2(78, 49)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_52wo7"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vn03k"]
 emission_shape = 1
-emission_sphere_radius = 12.14
+emission_sphere_radius = 0.01
 particle_flag_disable_z = true
-spread = 20.37
 gravity = Vector3(0, 10, 0)
-initial_velocity_max = 1.3
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 1.5
-scale_max = 2.0
-color = Color(0.47451, 0.611765, 0.458824, 1)
-hue_variation_min = -0.08
-hue_variation_max = 0.04
+scale_min = 0.25
+scale_max = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ux3my"]
+lifetime_randomness = 0.36
+emission_shape = 1
+emission_sphere_radius = 120.97
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, -50, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.25
+scale_max = 0.5
 
 [node name="WaterScene" type="Node2D"]
 script = ExtResource("1_hfbdb")
 
-[node name="Water" type="ColorRect" parent="."]
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6q0fe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 480.0
 offset_bottom = 270.0
-color = Color(0.129412, 0.811765, 0.776471, 0.337255)
+texture = ExtResource("3_t1vqe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_k45rf")
+}
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(115, 135)
@@ -70,19 +129,12 @@ animation = &"idle"
 position = Vector2(1, 9.5)
 shape = SubResource("RectangleShape2D_gep77")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Player"]
-position = Vector2(-3, 33)
-amount = 18
-process_material = SubResource("ParticleProcessMaterial_52wo7")
-lifetime = 0.3
-
-[node name="Obstacle" parent="." instance=ExtResource("6_iqf1n")]
-position = Vector2(-224, -4)
-scale = Vector2(2, 5)
-
-[node name="Obstacle2" parent="." instance=ExtResource("6_iqf1n")]
-position = Vector2(-104, 20)
-scale = Vector2(2, 5)
+[node name="Bubbles" type="GPUParticles2D" parent="Player"]
+position = Vector2(1, 17)
+scale = Vector2(34.7281, -2656.72)
+process_material = SubResource("ParticleProcessMaterial_vn03k")
+texture = ExtResource("8_3mb8v")
+lifetime = 0.5
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]
 position = Vector2(552, 0)
@@ -113,6 +165,14 @@ stream = ExtResource("10_43ixd")
 
 [node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_45ybe")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(240, 135)
+scale = Vector2(2.22855, 1.34211)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_ux3my")
+texture = ExtResource("14_qth5y")
+lifetime = 5.0
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/SpawnerTimer" to="ObstacleSpawner" method="_on_timer_timeout"]

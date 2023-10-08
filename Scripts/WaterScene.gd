@@ -6,6 +6,7 @@ func _ready():
 	MusicController.play_turtle_music()
 	await get_tree().create_timer(1).timeout
 	$Player.canMove = true
+	$TextureRect/AnimationPlayer.play("Algae_Movement_Animation")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqebi8as86bda"]
+[gd_scene load_steps=19 format=3 uid="uid://dqebi8as86bda"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_q0t8m"]
 [ext_resource type="Texture2D" uid="uid://45a1u32eybi4" path="res://Sprites/Buttons/boton normal JUGAR.png" id="2_3jbxu"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_o3qwu"]
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="13_62nfd"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="14_gbi74"]
+[ext_resource type="PackedScene" uid="uid://c71j3dhxcj7kb" path="res://Scenes/VolumeSlider.tscn" id="15_81feb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofv24"]
 bg_color = Color(1, 1, 1, 0.392157)
@@ -257,8 +258,9 @@ theme_override_fonts/font = ExtResource("12_o3qwu")
 theme_override_font_sizes/font_size = 20
 text = "MÚSICA"
 
-[node name="HSlider" type="HSlider" parent="OpcionesArea/VBoxContainer"]
+[node name="MusicaSlider" parent="OpcionesArea/VBoxContainer" instance=ExtResource("15_81feb")]
 layout_mode = 2
+bus_name = "Music"
 
 [node name="SFXLabel" type="Label" parent="OpcionesArea/VBoxContainer"]
 layout_mode = 2
@@ -269,8 +271,9 @@ theme_override_fonts/font = ExtResource("12_o3qwu")
 theme_override_font_sizes/font_size = 20
 text = "SFX"
 
-[node name="HSlider2" type="HSlider" parent="OpcionesArea/VBoxContainer"]
+[node name="SFXSlider" parent="OpcionesArea/VBoxContainer" instance=ExtResource("15_81feb")]
 layout_mode = 2
+bus_name = "SFX"
 
 [connection signal="mouse_entered" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]

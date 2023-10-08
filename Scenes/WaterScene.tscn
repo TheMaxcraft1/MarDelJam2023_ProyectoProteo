@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=52 format=3 uid="uid://m67xm0p2b4aw"]
 
 [ext_resource type="Script" path="res://Scripts/WaterScene.gd" id="1_hfbdb"]
 [ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
@@ -19,11 +19,18 @@
 [ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="10_43ixd"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="11_45ybe"]
 [ext_resource type="Texture2D" uid="uid://cwc77tbei3rqj" path="res://Sprites/WaterScene/burbuja 3.PNG" id="14_qth5y"]
+[ext_resource type="Texture2D" uid="uid://djbnarmha2uua" path="res://Sprites/pausa.png" id="16_ohbms"]
+[ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="17_f3c7p"]
+[ext_resource type="Texture2D" uid="uid://bi4fxdb612x8" path="res://Sprites/Buttons/boton normal salir.png" id="18_8jjme"]
+[ext_resource type="Texture2D" uid="uid://dbeo2t7shs87o" path="res://Sprites/Buttons/BOTON pressed salir.png" id="19_7vy8h"]
+[ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="20_n7ypb"]
 [ext_resource type="Texture2D" uid="uid://dmxj3eiwefwvb" path="res://Sprites/WaterScene/WaterDron1.PNG" id="20_ovdtl"]
 [ext_resource type="Texture2D" uid="uid://cylbjy8rq6q6a" path="res://Sprites/WaterScene/WaterDron2.PNG" id="21_tueyy"]
 [ext_resource type="Texture2D" uid="uid://0gqb1l010ke1" path="res://Sprites/WaterScene/WaterDron3.PNG" id="22_gw5c2"]
 [ext_resource type="Texture2D" uid="uid://cloys7gxifdo6" path="res://Sprites/WaterScene/WaterDron4.PNG" id="23_45cxq"]
 [ext_resource type="Script" path="res://Scripts/WaterDronMovement.gd" id="24_k33r4"]
+[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="30_dot1k"]
+[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="31_whhxn"]
 
 [sub_resource type="Animation" id="Animation_8o5jy"]
 resource_name = "Algae_Movement_Animation"
@@ -383,6 +390,54 @@ theme_override_fonts/font = ExtResource("8_gsfkh")
 theme_override_font_sizes/font_size = 20
 text = "Puntaje: 0"
 
+[node name="DeathMenu" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="BaseSprite" type="Sprite2D" parent="HUD/DeathMenu"]
+texture_filter = 1
+position = Vector2(240, 135)
+texture = ExtResource("16_ohbms")
+
+[node name="NooLabel" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 89.0
+offset_right = 328.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_f3c7p")
+theme_override_font_sizes/font_size = 24
+text = "¡NOOOO!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 116.0
+offset_right = 327.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_gsfkh")
+theme_override_font_sizes/font_size = 16
+text = "Caiste en manos del
+cazador furtivo.
+Mejor suerte para el
+resto de tu especie"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HUD/DeathMenu"]
+offset_left = 168.0
+offset_top = 208.0
+offset_right = 306.0
+offset_bottom = 248.0
+scale = Vector2(1.05, 1)
+texture_normal = ExtResource("18_8jjme")
+texture_pressed = ExtResource("19_7vy8h")
+texture_hover = ExtResource("20_n7ypb")
+
 [node name="TurtleSwim" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_fgo4x")
 
@@ -404,8 +459,16 @@ lifetime = 5.0
 position = Vector2(32, 128)
 sprite_frames = SubResource("SpriteFrames_ivldv")
 autoplay = "default"
-frame_progress = 0.916927
+frame_progress = 0.309413
 script = ExtResource("24_k33r4")
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_dot1k")
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_whhxn")
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/SpawnerTimer" to="ObstacleSpawner" method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

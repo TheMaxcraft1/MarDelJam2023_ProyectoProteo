@@ -27,7 +27,8 @@ func _on_opciones_button_pressed():
 func _on_jugar_button_pressed():
 	$ButtonPressed.play()
 	await $ButtonPressed.finished
-	get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
+	#get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
+	SceneTransition.change_scene(scene_list[randi() % scene_list.size()])
 
 
 func _on_jugar_button_mouse_entered():

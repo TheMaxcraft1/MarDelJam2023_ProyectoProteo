@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbeo2t7shs87o"
-path="res://.godot/imported/BOTON pressed salir.png-f6b6d057a9a5f838b53adfda4c02ab5c.ctex"
+uid="uid://dk327skrb6ss0"
+path="res://.godot/imported/BOTON hover salir.png-b5d90e3391e10e6e060a0125d4feaf6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buttons/BOTON pressed salir.png"
-dest_files=["res://.godot/imported/BOTON pressed salir.png-f6b6d057a9a5f838b53adfda4c02ab5c.ctex"]
+source_file="res://Sprites/Buttons/BOTON hover salir.png"
+dest_files=["res://.godot/imported/BOTON hover salir.png-b5d90e3391e10e6e060a0125d4feaf6f.ctex"]
 
 [params]
 

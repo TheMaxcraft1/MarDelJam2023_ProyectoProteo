@@ -14,3 +14,12 @@ func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
 
 
+
+
+func _on_texture_button_pressed():
+	$ButtonPressed.play()
+	SceneTransition.change_scene("res://Scenes/MainMenu.tscn")
+
+
+func _on_texture_button_mouse_entered():
+	$ButtonHover.play()

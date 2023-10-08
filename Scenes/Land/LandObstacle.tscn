@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtn82yi2c1j8g"]
+[gd_scene load_steps=8 format=3 uid="uid://dtn82yi2c1j8g"]
 
 [ext_resource type="Script" path="res://Scripts/LandObstacle.gd" id="1_xcti1"]
 [ext_resource type="Texture2D" uid="uid://dkhyo2vo5rj7i" path="res://Sprites/Capybara/casa b.PNG" id="2_56c2v"]
@@ -10,6 +10,9 @@ size = Vector2(125.5, 131)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnu46"]
 size = Vector2(59, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d7t8"]
+size = Vector2(20, 111.75)
 
 [node name="LandObstacle" type="Sprite2D"]
 script = ExtResource("1_xcti1")
@@ -37,5 +40,12 @@ shape = SubResource("RectangleShape2D_3f5of")
 [node name="Score" type="CollisionShape2D" parent="Score"]
 position = Vector2(71, 73)
 shape = SubResource("RectangleShape2D_qnu46")
+
+[node name="DeathArea" type="Area2D" parent="."]
+position = Vector2(15, 221)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(1, -15.875)
+shape = SubResource("RectangleShape2D_7d7t8")
 
 [connection signal="area_entered" from="Score" to="." method="_on_score_area_entered"]

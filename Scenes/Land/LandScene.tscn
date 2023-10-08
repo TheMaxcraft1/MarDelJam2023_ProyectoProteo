@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://du4egnw0pwi1r"]
+[gd_scene load_steps=32 format=3 uid="uid://du4egnw0pwi1r"]
 
 [ext_resource type="Texture2D" uid="uid://bp6lde8tew3x7" path="res://Sprites/Capybara/Capybara_1.PNG" id="1_5f5l6"]
 [ext_resource type="Script" path="res://Scripts/LandScene.gd" id="1_gu3qg"]
@@ -17,6 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://bi4fxdb612x8" path="res://Sprites/Buttons/boton normal SALIR.png" id="15_bnb6v"]
 [ext_resource type="Texture2D" uid="uid://dbeo2t7shs87o" path="res://Sprites/Buttons/boton pressed salir.png" id="16_vxq8m"]
 [ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="17_hx68t"]
+[ext_resource type="Texture2D" uid="uid://b0alph1kf7cue" path="res://Sprites/Dron/IMG_1370.PNG" id="18_fw247"]
+[ext_resource type="Texture2D" uid="uid://c0nlxt5ru6yr8" path="res://Sprites/Dron/IMG_1371.PNG" id="19_v1nwj"]
+[ext_resource type="Texture2D" uid="uid://bqsx7ci7c1t7l" path="res://Sprites/Dron/IMG_1372.PNG" id="20_o5cjn"]
+[ext_resource type="Texture2D" uid="uid://b0e2chbhrn4k0" path="res://Sprites/Dron/IMG_1373.PNG" id="21_tpj2u"]
+[ext_resource type="Script" path="res://Scenes/Land/DronMovement.gd" id="22_rgvo8"]
+[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="22_ysluf"]
+[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="23_orkjm"]
+[ext_resource type="AudioStream" uid="uid://dsvd165r5wgae" path="res://Sounds/CapibaraJump.wav" id="24_fdhk0"]
+[ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="25_hu4fv"]
+[ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="26_m6bnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk1c1"]
 size = Vector2(480.438, 69.9126)
@@ -49,6 +59,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5fxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_fw247")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v1nwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_o5cjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_tpj2u")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -130,7 +160,7 @@ script = ExtResource("10_qvdah")
 obstacle_scene = ExtResource("11_4qvfs")
 
 [node name="Timer" type="Timer" parent="ObstacleSpawner"]
-wait_time = 7.884
+wait_time = 8.0
 autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -196,5 +226,29 @@ texture_normal = ExtResource("15_bnb6v")
 texture_pressed = ExtResource("16_vxq8m")
 texture_hover = ExtResource("17_hx68t")
 
+[node name="Dron" type="AnimatedSprite2D" parent="."]
+position = Vector2(243, 138)
+sprite_frames = SubResource("SpriteFrames_a5fxh")
+autoplay = "default"
+frame_progress = 0.00904175
+script = ExtResource("22_rgvo8")
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_ysluf")
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_orkjm")
+
+[node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_fdhk0")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_hu4fv")
+
+[node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_m6bnk")
+
 [connection signal="area_entered" from="PlayerCarpincho/Area2D" to="PlayerCarpincho" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

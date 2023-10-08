@@ -23,12 +23,3 @@ func _on_timer_timeout():
 		obstacle.x_speed += 10
 		add_child(obstacle)
 		
-		
-
-func _on_area_2d_area_entered(area):
-	if area.name == "CasaBodyArea":
-		$PlayerCarpincho.canJump = false
-		print('choco pared')
-
-	if area.name == "Score":
-		print('puntone')

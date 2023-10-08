@@ -79,6 +79,7 @@ gravity = 200.0
 position = Vector2(153, 132)
 sprite_frames = SubResource("SpriteFrames_oaknt")
 animation = &"jump"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho"]
 position = Vector2(154.147, 203.123)

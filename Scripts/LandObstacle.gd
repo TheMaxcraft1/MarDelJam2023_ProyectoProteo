@@ -1,10 +1,11 @@
 extends Node2D
 
-@export var x_speed : float
+@export var x_speed = 50
+
 
 
 func _physics_process(delta):
-	position.x -= 50 * delta
+	position.x -= x_speed * delta
 	if global_position.x < -50:
 		queue_free()
 

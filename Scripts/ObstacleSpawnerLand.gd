@@ -20,12 +20,13 @@ func _on_timer_timeout():
 	if spawn:
 		var obstacle = obstacle_scene.instantiate()
 		obstacle.position = Vector2(350, 5)
+		obstacle.x_speed += 10
 		add_child(obstacle)
 		
 		
 
 func _on_area_2d_area_entered(area):
-	if area.name == "CasaBody":
+	if area.name == "CasaBodyArea":
 		$PlayerCarpincho.canJump = false
 		print('choco pared')
 

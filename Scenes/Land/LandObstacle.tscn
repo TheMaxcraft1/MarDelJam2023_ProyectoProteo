@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_3f5of")
 [node name="Score" type="Area2D" parent="."]
 
 [node name="Score" type="CollisionShape2D" parent="Score"]
-position = Vector2(108, 68)
+position = Vector2(71, 73)
 shape = SubResource("RectangleShape2D_qnu46")
 
 [connection signal="area_entered" from="Score" to="." method="_on_score_area_entered"]

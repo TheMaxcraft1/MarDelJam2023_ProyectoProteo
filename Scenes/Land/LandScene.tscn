@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://du4egnw0pwi1r"]
+[gd_scene load_steps=21 format=3 uid="uid://du4egnw0pwi1r"]
 
 [ext_resource type="Texture2D" uid="uid://bp6lde8tew3x7" path="res://Sprites/Capybara/Capybara_1.PNG" id="1_5f5l6"]
 [ext_resource type="Script" path="res://Scripts/LandScene.gd" id="1_gu3qg"]
@@ -11,9 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://cipqmsw4n6dlk" path="res://Sprites/Capybara/nube b.PNG" id="9_ghis8"]
 [ext_resource type="Script" path="res://Scripts/ObstacleSpawnerLand.gd" id="10_qvdah"]
 [ext_resource type="PackedScene" uid="uid://dtn82yi2c1j8g" path="res://Scenes/Land/LandObstacle.tscn" id="11_4qvfs"]
+[ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_m6vqg"]
+[ext_resource type="Texture2D" uid="uid://djbnarmha2uua" path="res://Sprites/pausa.png" id="13_oestg"]
+[ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="14_g6t35"]
+[ext_resource type="Texture2D" uid="uid://bi4fxdb612x8" path="res://Sprites/Buttons/boton normal SALIR.png" id="15_bnb6v"]
+[ext_resource type="Texture2D" uid="uid://dbeo2t7shs87o" path="res://Sprites/Buttons/boton pressed salir.png" id="16_vxq8m"]
+[ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="17_hx68t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk1c1"]
 size = Vector2(480.438, 69.9126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk4jr"]
+size = Vector2(84, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oaknt"]
 animations = [{
@@ -42,9 +51,6 @@ animations = [{
 "name": &"jump",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk4jr"]
-size = Vector2(84, 48)
 
 [node name="LandScene" type="Node2D"]
 position = Vector2(-3, -3)
@@ -100,6 +106,11 @@ script = ExtResource("2_gxlkp")
 jump_speed = 300.0
 gravity = 200.0
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerCarpincho"]
+position = Vector2(154.147, 203.123)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_dk4jr")
+
 [node name="Sprite2D" type="Sprite2D" parent="PlayerCarpincho"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCarpincho"]
@@ -107,8 +118,11 @@ position = Vector2(153, 132)
 sprite_frames = SubResource("SpriteFrames_oaknt")
 animation = &"jump"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho"]
+[node name="Area2D" type="Area2D" parent="PlayerCarpincho"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho/Area2D"]
 position = Vector2(154.147, 203.123)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dk4jr")
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]
@@ -119,4 +133,68 @@ obstacle_scene = ExtResource("11_4qvfs")
 wait_time = 7.884
 autostart = true
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("12_m6vqg")
+theme_override_font_sizes/font_size = 20
+text = "Puntaje: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="DeathMenu" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="BaseSprite" type="Sprite2D" parent="HUD/DeathMenu"]
+texture_filter = 1
+position = Vector2(240, 135)
+texture = ExtResource("13_oestg")
+
+[node name="NooLabel" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 89.0
+offset_right = 328.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_g6t35")
+theme_override_font_sizes/font_size = 24
+text = "¡NOOOO!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 116.0
+offset_right = 327.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_m6vqg")
+theme_override_font_sizes/font_size = 16
+text = "Caiste en manos del
+cazador furtivo.
+Mejor suerte para el
+resto de tu especie"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 208.0
+offset_right = 306.0
+offset_bottom = 248.0
+scale = Vector2(1.05, 1)
+texture_normal = ExtResource("15_bnb6v")
+texture_pressed = ExtResource("16_vxq8m")
+texture_hover = ExtResource("17_hx68t")
+
+[connection signal="area_entered" from="PlayerCarpincho/Area2D" to="PlayerCarpincho" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]

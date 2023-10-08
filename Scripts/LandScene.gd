@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var _animated_sprite = $AnimatedFloor
 var scene_list = ["res://Scenes/WaterScene.tscn", "res://Scenes/Sky/SkyScene.tscn"]
 var maxScore = ScoreController.get_score() + 3 
 # Called when the node enters the scene tree for the first time.
@@ -7,6 +7,7 @@ func _ready():
 	MusicController.play_capibara_music()
 	await get_tree().create_timer(1).timeout
 	$PlayerCarpincho.canJump = true
+	_animated_sprite.play("animatedFloor")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://du4egnw0pwi1r"]
+[gd_scene load_steps=36 format=3 uid="uid://du4egnw0pwi1r"]
 
 [ext_resource type="Texture2D" uid="uid://bp6lde8tew3x7" path="res://Sprites/Capybara/Capybara_1.PNG" id="1_5f5l6"]
 [ext_resource type="Script" path="res://Scripts/LandScene.gd" id="1_gu3qg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cx3cmy5f36iwd" path="res://Sprites/Capybara/Capybara_2.PNG" id="2_qhiwe"]
 [ext_resource type="Texture2D" uid="uid://bv2pbvhcue24i" path="res://Sprites/Capybara/piso.PNG" id="3_le0gm"]
 [ext_resource type="Texture2D" uid="uid://cpcw5cnmbnrsf" path="res://Sprites/Capybara/Capybara_3.PNG" id="3_w4sbb"]
+[ext_resource type="Script" path="res://Scripts/CloudsLand.gd" id="5_vcgou"]
 [ext_resource type="Texture2D" uid="uid://c728hx3gbmis1" path="res://Sprites/Capybara/nube a.PNG" id="8_sim76"]
 [ext_resource type="Texture2D" uid="uid://cipqmsw4n6dlk" path="res://Sprites/Capybara/nube b.PNG" id="9_ghis8"]
 [ext_resource type="Script" path="res://Scripts/ObstacleSpawnerLand.gd" id="10_qvdah"]
@@ -27,9 +28,25 @@
 [ext_resource type="AudioStream" uid="uid://dsvd165r5wgae" path="res://Sounds/CapibaraJump.wav" id="24_fdhk0"]
 [ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="25_hu4fv"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="26_m6bnk"]
+[ext_resource type="Texture2D" uid="uid://cmjm1abtqhefc" path="res://Sprites/piso1.png" id="29_tsbs8"]
+[ext_resource type="Texture2D" uid="uid://iyga3crwhq8f" path="res://Sprites/piso.PNG" id="30_0nxph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk1c1"]
 size = Vector2(480.438, 69.9126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1fic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_tsbs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0nxph")
+}],
+"loop": true,
+"name": &"animatedFloor",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk4jr"]
 size = Vector2(84, 48)
@@ -115,6 +132,7 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="Piso" type="Sprite2D" parent="background"]
+visible = false
 position = Vector2(197.82, 129.825)
 scale = Vector2(0.851185, 1.06455)
 texture = ExtResource("3_le0gm")
@@ -123,11 +141,19 @@ texture = ExtResource("3_le0gm")
 position = Vector2(182.44, 137.814)
 scale = Vector2(0.530348, 0.998654)
 texture = ExtResource("9_ghis8")
+script = ExtResource("5_vcgou")
 
 [node name="NubeA" type="Sprite2D" parent="background"]
 position = Vector2(70.006, 116.843)
 scale = Vector2(0.530348, 0.998654)
 texture = ExtResource("8_sim76")
+script = ExtResource("5_vcgou")
+
+[node name="AnimatedFloor" type="AnimatedSprite2D" parent="."]
+position = Vector2(248, 140)
+scale = Vector2(1.05625, 1)
+sprite_frames = SubResource("SpriteFrames_b1fic")
+animation = &"animatedFloor"
 
 [node name="PlayerCarpincho" type="CharacterBody2D" parent="."]
 position = Vector2(50, 0)
@@ -138,7 +164,6 @@ gravity = 200.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerCarpincho"]
 position = Vector2(154.147, 203.123)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dk4jr")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerCarpincho"]
@@ -152,7 +177,6 @@ animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho/Area2D"]
 position = Vector2(154.147, 203.123)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dk4jr")
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]

@@ -97,7 +97,7 @@ texture = ExtResource("8_sim76")
 position = Vector2(50, 0)
 scale = Vector2(1.00554, 0.994471)
 script = ExtResource("2_gxlkp")
-jump_speed = 200.0
+jump_speed = 300.0
 gravity = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerCarpincho"]
@@ -116,7 +116,7 @@ script = ExtResource("10_qvdah")
 obstacle_scene = ExtResource("11_4qvfs")
 
 [node name="Timer" type="Timer" parent="ObstacleSpawner"]
-wait_time = 2.0
+wait_time = 7.884
 autostart = true
 
 [connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]

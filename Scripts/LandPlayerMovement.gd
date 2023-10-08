@@ -34,10 +34,12 @@ func _process(delta):
 	pass
 	
 func _on_area_2d_area_entered(area):
-	if area.name == "WallArea":
+	print(area)
+	
+	if area.name == "CasaBody":
 		canJump = false
 		print('choco pared')
 
-	if area.name == "ScoreArea":
+	if area.name == "Score":
 		print('puntone')
 

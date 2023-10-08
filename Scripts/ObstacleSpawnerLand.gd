@@ -19,6 +19,15 @@ func _process(delta):
 func _on_timer_timeout():
 	if spawn:
 		var obstacle = obstacle_scene.instantiate()
-		obstacle.position = Vector2(300, 20)
+		obstacle.position = Vector2(350, 5)
 		add_child(obstacle)
 		
+		
+
+func _on_area_2d_area_entered(area):
+	if area.name == "CasaBody":
+		$PlayerCarpincho.canJump = false
+		print('choco pared')
+
+	if area.name == "Score":
+		print('puntone')

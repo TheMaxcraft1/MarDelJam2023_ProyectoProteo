@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://doynxgm3c2w2k"]
+[gd_scene load_steps=33 format=3 uid="uid://doynxgm3c2w2k"]
 
 [ext_resource type="Script" path="res://Scripts/Sky/SkyScene.gd" id="1_2s3p8"]
 [ext_resource type="Texture2D" uid="uid://cj2mswasb0op" path="res://Sprites/SkyScene/IMG_1325.PNG" id="2_ymd2s"]
@@ -18,11 +18,19 @@
 [ext_resource type="Texture2D" uid="uid://bqsx7ci7c1t7l" path="res://Sprites/Dron/IMG_1372.PNG" id="16_idoro"]
 [ext_resource type="Texture2D" uid="uid://b0e2chbhrn4k0" path="res://Sprites/Dron/IMG_1373.PNG" id="17_4l4tt"]
 [ext_resource type="PackedScene" uid="uid://gwtcxclvqi4" path="res://Scenes/Sky/obstacle_spawner.tscn" id="18_bjdhc"]
+[ext_resource type="Script" path="res://Scripts/Sky/DronAnimationSky.gd" id="18_oj5ec"]
 [ext_resource type="PackedScene" uid="uid://b5ig04rky21f0" path="res://Scenes/Sky/ParrotScene.tscn" id="19_0n404"]
 [ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="20_alpsg"]
+[ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="20_nvmo0"]
 [ext_resource type="AudioStream" uid="uid://cri6y1mior734" path="res://Sounds/ParrotFly.wav" id="21_blhja"]
+[ext_resource type="Texture2D" uid="uid://djbnarmha2uua" path="res://Sprites/pausa.png" id="21_kynfn"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="22_hcg5y"]
 [ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="23_7jwpf"]
+[ext_resource type="Texture2D" uid="uid://bi4fxdb612x8" path="res://Sprites/Buttons/boton normal SALIR.png" id="23_136bd"]
+[ext_resource type="Texture2D" uid="uid://dbeo2t7shs87o" path="res://Sprites/Buttons/boton pressed salir.png" id="24_pc1x2"]
+[ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="25_yrt27"]
+[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="30_c5cmg"]
+[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="31_00fvc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7idt8"]
 animations = [{
@@ -50,9 +58,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_d1nw8"]
-font = ExtResource("20_alpsg")
-
 [node name="SkyScene" type="Node2D"]
 script = ExtResource("1_2s3p8")
 
@@ -68,8 +73,18 @@ position = Vector2(293, 113)
 texture = ExtResource("3_37h43")
 script = ExtResource("4_0xgef")
 
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(541, 156)
+texture = ExtResource("5_bf8ru")
+script = ExtResource("6_dsfjj")
+
+[node name="Tree2" type="Sprite2D" parent="Tree2"]
+position = Vector2(-159, -11)
+texture = ExtResource("7_fbauu")
+script = ExtResource("8_5r5f2")
+
 [node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(283, 147)
+position = Vector2(346, 138)
 texture = ExtResource("5_bf8ru")
 script = ExtResource("6_dsfjj")
 
@@ -100,6 +115,7 @@ position = Vector2(628, 167)
 position = Vector2(243, 106)
 sprite_frames = SubResource("SpriteFrames_7idt8")
 animation = &"dronAnimation"
+script = ExtResource("18_oj5ec")
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource("18_bjdhc")]
 
@@ -109,9 +125,64 @@ position = Vector2(184, 141)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="HUD"]
+texture_filter = 1
 offset_right = 40.0
 offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_d1nw8")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("20_nvmo0")
+theme_override_font_sizes/font_size = 20
+text = "Puntaje: 0"
+
+[node name="DeathMenu" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="BaseSprite" type="Sprite2D" parent="HUD/DeathMenu"]
+texture_filter = 1
+position = Vector2(240, 135)
+texture = ExtResource("21_kynfn")
+
+[node name="NooLabel" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 89.0
+offset_right = 328.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_alpsg")
+theme_override_font_sizes/font_size = 24
+text = "¡NOOOO!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 116.0
+offset_right = 327.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_nvmo0")
+theme_override_font_sizes/font_size = 16
+text = "Caiste en manos del
+cazador furtivo.
+Mejor suerte para el
+resto de tu especie"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 208.0
+offset_right = 306.0
+offset_bottom = 248.0
+scale = Vector2(1.05, 1)
+texture_normal = ExtResource("23_136bd")
+texture_pressed = ExtResource("24_pc1x2")
+texture_hover = ExtResource("25_yrt27")
 
 [node name="FlySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_blhja")
@@ -121,3 +192,17 @@ stream = ExtResource("22_hcg5y")
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_7jwpf")
+
+[node name="SceneSwitch" type="Timer" parent="."]
+wait_time = 2.996
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("30_c5cmg")
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("31_00fvc")
+
+[connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

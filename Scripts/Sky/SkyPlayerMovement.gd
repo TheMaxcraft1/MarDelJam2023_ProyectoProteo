@@ -33,7 +33,6 @@ func coll(charac):
 		position.y=40
 	if position.y>=255:
 		position.y=245
-	print("POSICION Y: ",position.y)
 	velocity=charac*speed
 	velocity.y+=GRAVITY
 		
@@ -52,6 +51,11 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("obstacle"):
 		hitSound.play()
 		move=false
+		get_parent().alive=false
+		get_parent().get_node("HUD/DeathMenu").set_visible(true)
 	else:
-		scoreSound.play()
-		get_parent().score+=1
+		await get_tree().create_timer(0.5).timeout
+		if get_parent().alive:
+			scoreSound.play()
+			ScoreController.score_up()
+			get_parent().score+=1

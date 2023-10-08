@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dqebi8as86bda"]
+[gd_scene load_steps=42 format=3 uid="uid://dqebi8as86bda"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_q0t8m"]
 [ext_resource type="Texture2D" uid="uid://45a1u32eybi4" path="res://Sprites/Buttons/boton normal JUGAR.png" id="2_3jbxu"]
@@ -14,8 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://cp4y6d68qg2s4" path="res://Sprites/Buttons/boton pressed opciones.png" id="6_73lpx"]
 [ext_resource type="Texture2D" uid="uid://bbp7vkvl5vy0f" path="res://Sprites/Buttons/boton hover OPCIONES.png" id="7_b2tkr"]
 [ext_resource type="Texture2D" uid="uid://c8pu0a5esjx3o" path="res://Sprites/Buttons/boton normal CREDITOS.png" id="8_i1wxb"]
+[ext_resource type="Texture2D" uid="uid://go3si7rqdtwp" path="res://Sprites/MainMenu/titulo 1.png" id="8_leh43"]
 [ext_resource type="Texture2D" uid="uid://cw8td121gfnwq" path="res://Sprites/Buttons/boton pressed CREDITOS.png" id="9_6ix8t"]
+[ext_resource type="Texture2D" uid="uid://drsxh00rjwu41" path="res://Sprites/MainMenu/titulo 2.png" id="9_12tny"]
+[ext_resource type="Texture2D" uid="uid://4bygwbpuw42g" path="res://Sprites/MainMenu/titulo 3.png" id="10_5yq01"]
 [ext_resource type="Texture2D" uid="uid://4vtabhad8e2y" path="res://Sprites/Buttons/boton hover CREDITOS.png" id="10_p75ct"]
+[ext_resource type="Texture2D" uid="uid://dudyv1jti5tyd" path="res://Sprites/MainMenu/titulo 4.png" id="11_orp82"]
+[ext_resource type="Texture2D" uid="uid://dvtlv80ti36hh" path="res://Sprites/MainMenu/titulo 5.png" id="12_kglyf"]
 [ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_o3qwu"]
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="13_62nfd"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="14_gbi74"]
@@ -173,6 +178,29 @@ _data = {
 "RESET": SubResource("Animation_ut2jr")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7r1lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_leh43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_12tny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5yq01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_orp82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kglyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofv24"]
 bg_color = Color(1, 1, 1, 0.392157)
 corner_radius_top_left = 5
@@ -256,6 +284,7 @@ texture = ExtResource("3_a3kkt")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TituloContainer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
 visibility_layer = 2
 offset_right = 480.0
 offset_bottom = 128.0
@@ -272,6 +301,12 @@ text = "FLAPPY
 MORFOSIS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(240, 136)
+sprite_frames = SubResource("SpriteFrames_7r1lp")
+autoplay = "default"
+frame_progress = 0.863331
 
 [node name="MainContainer" type="MarginContainer" parent="."]
 offset_top = 128.0

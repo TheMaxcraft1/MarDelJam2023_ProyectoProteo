@@ -26,9 +26,9 @@ texture = ExtResource("3_ttet5")
 position = Vector2(329, 165)
 texture = ExtResource("5_2tcyx")
 
-[node name="CasaBody" type="StaticBody2D" parent="."]
+[node name="CasaBodyArea" type="StaticBody2D" parent="."]
 
-[node name="CasaB" type="CollisionShape2D" parent="CasaBody"]
+[node name="CasaB" type="CollisionShape2D" parent="CasaBodyArea"]
 position = Vector2(70.25, 197.5)
 shape = SubResource("RectangleShape2D_3f5of")
 

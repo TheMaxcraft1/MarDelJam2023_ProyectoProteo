@@ -1,9 +1,9 @@
 extends Node
 
-var turtleMusic = load("res://Music/TurtleMusic.mp3")
-var capibaraMusic = load("res://Music/CapibaraMusic.wav")
-var parrotMusic = load("res://Music/ParrotMusic.wav")
-var mainMenuMusic = load("res://Music/MainMenuMusic.wav")
+var turtleMusic = load("res://Music/TurtleMusic.ogg")
+var capibaraMusic = load("res://Music/CapibaraMusic.ogg")
+var parrotMusic = load("res://Music/ParrotMusic.ogg")
+var mainMenuMusic = load("res://Music/MainMenuMusic.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

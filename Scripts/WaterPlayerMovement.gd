@@ -28,7 +28,8 @@ func _physics_process(delta):
 
 		if position.y < 0:
 			position.y = 0
-			dy = 0
+			canMove = false
+			hitSound.play()
 		if position.y > 270:
 			position.y = 270
 			dy = 0
@@ -44,4 +45,4 @@ func _on_area_2d_area_entered(area):
 		hitSound.play()
 	if area.name == "ScoreArea":
 		scoreUpSound.play()
-		get_parent().score += 1
+		ScoreController.score_up()

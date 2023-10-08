@@ -4,6 +4,7 @@ extends Node2D
 var score
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicController.play_parrot_music()
 	_animated_sprite.play("dronAnimation")
 	score=0
 

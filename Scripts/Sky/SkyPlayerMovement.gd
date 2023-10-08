@@ -6,7 +6,7 @@ var GRAVITY=15
 var move=true
 
 func get_input():
-	var input_direction = Input.get_vector("", "", "", "input")
+	var input_direction = Input.get_vector("", "", "", "WaterJump")
 	coll(input_direction)
 	
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://h8hu3khm6o6d"]
+
+[ext_resource type="Script" path="res://Scripts/Sky/Colision3.gd" id="1_02qkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_depel"]
+size = Vector2(37.625, 1513)
+
+[node name="Score" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["scoreArea"]]
+position = Vector2(227.188, 190.5)
+shape = SubResource("RectangleShape2D_depel")
+script = ExtResource("1_02qkp")

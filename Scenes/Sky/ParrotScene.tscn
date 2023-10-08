@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5ig04rky21f0"]
+
+[ext_resource type="Script" path="res://Scripts/Sky/SkyPlayerMovement.gd" id="1_nd7wp"]
+[ext_resource type="Texture2D" uid="uid://da2tkf0q1f4ow" path="res://Sprites/Parrot/IMG_1320.PNG" id="2_1764u"]
+[ext_resource type="Texture2D" uid="uid://cmp6hof6get7b" path="res://Sprites/Parrot/IMG_1321.PNG" id="3_bp70i"]
+[ext_resource type="Texture2D" uid="uid://ko2apnhhqe1j" path="res://Sprites/Parrot/IMG_1324.PNG" id="4_w3id1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2csvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1764u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bp70i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w3id1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bp70i")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfrrn"]
+size = Vector2(44, 22)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(99, 69)
+script = ExtResource("1_nd7wp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(62, -22)
+scale = Vector2(0.414583, 0.401852)
+sprite_frames = SubResource("SpriteFrames_2csvu")
+animation = &"fly"
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kfrrn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

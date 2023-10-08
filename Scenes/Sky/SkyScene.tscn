@@ -1,0 +1,111 @@
+[gd_scene load_steps=23 format=3 uid="uid://doynxgm3c2w2k"]
+
+[ext_resource type="Script" path="res://Scripts/Sky/SkyScene.gd" id="1_2s3p8"]
+[ext_resource type="Texture2D" uid="uid://cj2mswasb0op" path="res://Sprites/SkyScene/IMG_1325.PNG" id="2_ymd2s"]
+[ext_resource type="Texture2D" uid="uid://denruidcvw28h" path="res://Sprites/SkyScene/IMG_1357.PNG" id="3_37h43"]
+[ext_resource type="Script" path="res://Scripts/Sky/Background/CloudS3.gd" id="4_0xgef"]
+[ext_resource type="Texture2D" uid="uid://be6vrgceusv36" path="res://Sprites/SkyScene/IMG_1356.PNG" id="5_bf8ru"]
+[ext_resource type="Script" path="res://Scripts/Sky/Background/TreeS1.gd" id="6_dsfjj"]
+[ext_resource type="Texture2D" uid="uid://cuwkf8pvxpck4" path="res://Sprites/SkyScene/IMG_1355.PNG" id="7_fbauu"]
+[ext_resource type="Script" path="res://Scripts/Sky/Background/TreeS2.gd" id="8_5r5f2"]
+[ext_resource type="Texture2D" uid="uid://bp58401yg4xmn" path="res://Sprites/SkyScene/IMG_1358.PNG" id="9_m84jf"]
+[ext_resource type="Script" path="res://Scripts/Sky/Background/CloudS2.gd" id="10_nrpyx"]
+[ext_resource type="Texture2D" uid="uid://csv28x2d1q54b" path="res://Sprites/SkyScene/IMG_1359.PNG" id="11_k24uc"]
+[ext_resource type="Script" path="res://Scripts/Sky/Background/CloudS1.gd" id="12_0t3bq"]
+[ext_resource type="PackedScene" uid="uid://dooamjcp0rkns" path="res://Scenes/Sky/SkyObstacles.tscn" id="13_fvrk1"]
+[ext_resource type="Texture2D" uid="uid://b0alph1kf7cue" path="res://Sprites/Dron/IMG_1370.PNG" id="14_3ihmy"]
+[ext_resource type="Texture2D" uid="uid://c0nlxt5ru6yr8" path="res://Sprites/Dron/IMG_1371.PNG" id="15_bo4no"]
+[ext_resource type="Texture2D" uid="uid://bqsx7ci7c1t7l" path="res://Sprites/Dron/IMG_1372.PNG" id="16_idoro"]
+[ext_resource type="Texture2D" uid="uid://b0e2chbhrn4k0" path="res://Sprites/Dron/IMG_1373.PNG" id="17_4l4tt"]
+[ext_resource type="PackedScene" uid="uid://c0u2u2t2uqjwy" path="res://Scenes/Sky/obstacle_spawner.tscn" id="18_bjdhc"]
+[ext_resource type="PackedScene" uid="uid://b5ig04rky21f0" path="res://Scenes/Sky/ParrotScene.tscn" id="19_0n404"]
+[ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="20_alpsg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7idt8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3ihmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bo4no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_idoro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4l4tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_idoro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bo4no")
+}],
+"loop": true,
+"name": &"dronAnimation",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1nw8"]
+font = ExtResource("20_alpsg")
+
+[node name="SkyScene" type="Node2D"]
+script = ExtResource("1_2s3p8")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 477.0
+offset_bottom = 271.0
+texture = ExtResource("2_ymd2s")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(293, 113)
+texture = ExtResource("3_37h43")
+script = ExtResource("4_0xgef")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(283, 147)
+texture = ExtResource("5_bf8ru")
+script = ExtResource("6_dsfjj")
+
+[node name="Tree2" type="Sprite2D" parent="Tree"]
+position = Vector2(-236, -3)
+texture = ExtResource("7_fbauu")
+script = ExtResource("8_5r5f2")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+position = Vector2(214, 114)
+texture = ExtResource("9_m84jf")
+script = ExtResource("10_nrpyx")
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+position = Vector2(357, 205)
+texture = ExtResource("3_37h43")
+script = ExtResource("4_0xgef")
+
+[node name="Cloud4" type="Sprite2D" parent="."]
+position = Vector2(230, 239)
+texture = ExtResource("11_k24uc")
+script = ExtResource("12_0t3bq")
+
+[node name="SpriteObs" parent="." instance=ExtResource("13_fvrk1")]
+position = Vector2(628, 167)
+
+[node name="DronAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(243, 106)
+sprite_frames = SubResource("SpriteFrames_7idt8")
+animation = &"dronAnimation"
+
+[node name="ObstacleSpawner" parent="." instance=ExtResource("18_bjdhc")]
+
+[node name="Player" parent="." instance=ExtResource("19_0n404")]
+position = Vector2(184, 141)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_d1nw8")

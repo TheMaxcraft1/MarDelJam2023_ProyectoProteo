@@ -12,7 +12,7 @@ func _ready():
 	turtleSwimSound = get_parent().get_node("TurtleSwim")
 	scoreUpSound = get_parent().get_node("ScoreUp")
 	hitSound = get_parent().get_node("Hit")
-
+	
 func _physics_process(delta):
 	if canMove:
 		dy += GRAVITY * delta
@@ -30,6 +30,7 @@ func _physics_process(delta):
 			position.y = 0
 			canMove = false
 			hitSound.play()
+			get_parent().get_node("HUD/DeathMenu").set_visible(true)
 		if position.y > 270:
 			position.y = 270
 			dy = 0

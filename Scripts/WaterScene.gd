@@ -14,11 +14,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
-	await get_tree().create_timer(2).timeout
-	if alive:
-		if score == 3:
-			await get_tree().create_timer(0.5).timeout
-			get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
+	if score == 5:
+		await get_tree().create_timer(0.1).timeout
+		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 		
 func _on_texture_button_pressed():
 	$ButtonPressed.play()

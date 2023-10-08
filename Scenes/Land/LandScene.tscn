@@ -230,7 +230,7 @@ texture_hover = ExtResource("17_hx68t")
 position = Vector2(243, 138)
 sprite_frames = SubResource("SpriteFrames_a5fxh")
 autoplay = "default"
-frame_progress = 0.877984
+frame_progress = 0.618429
 script = ExtResource("22_rgvo8")
 
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]

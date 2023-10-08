@@ -15,7 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
-	if score == 1:
+	if score == 5:
 		$Player.canMove = false
 		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 		#SceneTransition.change_scene(scene_list[randi() % scene_list.size()])

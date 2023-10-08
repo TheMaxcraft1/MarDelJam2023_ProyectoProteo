@@ -1,7 +1,7 @@
 extends Node2D
 
 var scene_list = ["res://Scenes/WaterScene.tscn", "res://Scenes/Sky/SkyScene.tscn"]
-var maxScore = ScoreController.get_score() + 1 
+var maxScore = ScoreController.get_score() + 3 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicController.play_capibara_music()

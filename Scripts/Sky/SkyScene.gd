@@ -8,7 +8,7 @@ var alive
 func _ready():
 	MusicController.play_parrot_music()
 	_animated_sprite.play("dronAnimation")
-	score=1
+	score=0
 	alive=true
 	
 
@@ -16,8 +16,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
-	if score == 10:
-		await get_tree().create_timer(2).timeout
+	if score == 3:
+		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 
 

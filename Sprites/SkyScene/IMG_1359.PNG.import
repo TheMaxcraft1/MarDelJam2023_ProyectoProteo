@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i042td0f0m6o"
-path="res://.godot/imported/SimilRed.png-998699f3abe6243d33d0b543ef51a7c5.ctex"
+uid="uid://csv28x2d1q54b"
+path="res://.godot/imported/IMG_1359.PNG-762d6dd2ab4f2b8cdaef9a3419b1dd40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SimilRed.png"
-dest_files=["res://.godot/imported/SimilRed.png-998699f3abe6243d33d0b543ef51a7c5.ctex"]
+source_file="res://Sprites/SkyScene/IMG_1359.PNG"
+dest_files=["res://.godot/imported/IMG_1359.PNG-762d6dd2ab4f2b8cdaef9a3419b1dd40.ctex"]
 
 [params]
 

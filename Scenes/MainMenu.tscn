@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqebi8as86bda"]
+[gd_scene load_steps=19 format=3 uid="uid://dqebi8as86bda"]
 
-[ext_resource type="FontFile" uid="uid://bldwkf231s5jw" path="res://Fonts/superstar_memesbruh03.ttf" id="1_4ho5x"]
-[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_tr7ho"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_q0t8m"]
 [ext_resource type="Texture2D" uid="uid://45a1u32eybi4" path="res://Sprites/Buttons/boton normal JUGAR.png" id="2_3jbxu"]
+[ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="2_20agp"]
 [ext_resource type="Texture2D" uid="uid://rberqcnkygm2" path="res://Sprites/Buttons/boton pressed JUGAR.png" id="3_cth7v"]
 [ext_resource type="Texture2D" uid="uid://d1wx7k7nbfvun" path="res://Sprites/Buttons/boton hover JUGAR.png" id="4_kkn05"]
 [ext_resource type="Texture2D" uid="uid://cmvrko0b0cmhb" path="res://Sprites/Buttons/boton normal OPCIONES.png" id="5_rryje"]
@@ -12,9 +12,34 @@
 [ext_resource type="Texture2D" uid="uid://cw8td121gfnwq" path="res://Sprites/Buttons/boton pressed CREDITOS.png" id="9_6ix8t"]
 [ext_resource type="Texture2D" uid="uid://4vtabhad8e2y" path="res://Sprites/Buttons/boton hover CREDITOS.png" id="10_p75ct"]
 [ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_o3qwu"]
+[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="13_62nfd"]
+[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="14_gbi74"]
+[ext_resource type="PackedScene" uid="uid://c71j3dhxcj7kb" path="res://Scenes/VolumeSlider.tscn" id="15_81feb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofv24"]
+bg_color = Color(1, 1, 1, 0.392157)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fk2k"]
+bg_color = Color(1, 1, 1, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piu2v"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="Node2D"]
-script = ExtResource("1_tr7ho")
+script = ExtResource("1_q0t8m")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 480.0
@@ -22,16 +47,19 @@ offset_bottom = 272.0
 color = Color(0.447059, 0.631373, 0.898039, 1)
 
 [node name="TituloContainer" type="MarginContainer" parent="."]
-offset_right = 469.0
+offset_right = 480.0
 offset_bottom = 128.0
 
 [node name="Label" type="Label" parent="TituloContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_4ho5x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_20agp")
 theme_override_font_sizes/font_size = 60
-text = "PROYECTO PROTEO"
+text = "PROYECTO 
+PROTEO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -68,21 +96,35 @@ texture_normal = ExtResource("8_i1wxb")
 texture_pressed = ExtResource("9_6ix8t")
 texture_hover = ExtResource("10_p75ct")
 
-[node name="CreditosContainer" type="MarginContainer" parent="."]
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_62nfd")
+bus = &"SFX"
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_gbi74")
+bus = &"SFX"
+
+[node name="CreditosArea" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_top = 128.0
 offset_right = 480.0
-offset_bottom = 225.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 0
+offset_bottom = 272.0
 
-[node name="GridContainer" type="GridContainer" parent="CreditosContainer"]
+[node name="CreditosContainer" type="MarginContainer" parent="CreditosArea"]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 97.0
+theme_override_constants/margin_left = 45
+
+[node name="GridContainer" type="GridContainer" parent="CreditosArea/CreditosContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 75
+theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="ProgramacionLabel" type="Label" parent="CreditosContainer/GridContainer"]
+[node name="ProgramacionLabel" type="Label" parent="CreditosArea/CreditosContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -92,7 +134,7 @@ theme_override_font_sizes/font_size = 20
 text = "Programación"
 horizontal_alignment = 1
 
-[node name="ArteLabel" type="Label" parent="CreditosContainer/GridContainer"]
+[node name="ArteLabel" type="Label" parent="CreditosArea/CreditosContainer/GridContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -103,17 +145,17 @@ theme_override_font_sizes/font_size = 20
 text = "Arte"
 horizontal_alignment = 1
 
-[node name="MusicaLabel" type="Label" parent="CreditosContainer/GridContainer"]
+[node name="MusicaLabel" type="Label" parent="CreditosArea/CreditosContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("12_o3qwu")
 theme_override_font_sizes/font_size = 20
-text = "Música"
+text = "Agradecimientos"
 horizontal_alignment = 1
 
-[node name="ProgramadoresLabel" type="Label" parent="CreditosContainer/GridContainer"]
+[node name="ProgramadoresLabel" type="Label" parent="CreditosArea/CreditosContainer/GridContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -124,7 +166,7 @@ Nicolás Vera
 Máximo Fain"
 horizontal_alignment = 1
 
-[node name="ArtistasLabel" type="Label" parent="CreditosContainer/GridContainer"]
+[node name="ArtistasLabel" type="Label" parent="CreditosArea/CreditosContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -135,7 +177,7 @@ theme_override_font_sizes/font_size = 16
 text = "Paz Rozen
 Yamil Tahuil"
 
-[node name="MusicosLabel" type="Label" parent="CreditosContainer/GridContainer"]
+[node name="MusicosLabel" type="Label" parent="CreditosArea/CreditosContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -143,11 +185,95 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("12_o3qwu")
 theme_override_font_sizes/font_size = 16
-text = "Nadie xd"
+text = "Juanma por la Música
+GameDevMDQ"
+horizontal_alignment = 1
 
-[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+[node name="AtrasButton" type="Button" parent="CreditosArea"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -33.0
+offset_right = 69.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_ofv24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5fk2k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_piu2v")
+text = "ATRÁS"
 
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+[node name="OpcionesArea" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 128.0
+offset_right = 472.0
+offset_bottom = 232.0
+
+[node name="AtrasOpcionesButton" type="Button" parent="OpcionesArea"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = 7.0
+offset_right = 73.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_ofv24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5fk2k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_piu2v")
+text = "ATRÁS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OpcionesArea"]
+layout_mode = 0
+offset_left = 144.0
+offset_right = 336.0
+offset_bottom = 104.0
+
+[node name="MusicaLabel" type="Label" parent="OpcionesArea/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 20
+text = "MÚSICA"
+
+[node name="MusicaSlider" parent="OpcionesArea/VBoxContainer" instance=ExtResource("15_81feb")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFXLabel" type="Label" parent="OpcionesArea/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("12_o3qwu")
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+
+[node name="SFXSlider" parent="OpcionesArea/VBoxContainer" instance=ExtResource("15_81feb")]
+layout_mode = 2
+bus_name = "SFX"
 
 [connection signal="mouse_entered" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
@@ -155,3 +281,7 @@ text = "Nadie xd"
 [connection signal="pressed" from="MainContainer/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_pressed"]
 [connection signal="mouse_entered" from="MainContainer/VBoxContainer/CreditosButton" to="." method="_on_creditos_button_mouse_entered"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/CreditosButton" to="." method="_on_creditos_button_pressed"]
+[connection signal="mouse_entered" from="CreditosArea/AtrasButton" to="." method="_on_atras_button_mouse_entered"]
+[connection signal="pressed" from="CreditosArea/AtrasButton" to="." method="_on_atras_button_pressed"]
+[connection signal="mouse_entered" from="OpcionesArea/AtrasOpcionesButton" to="." method="_on_atras_opciones_button_mouse_entered"]
+[connection signal="pressed" from="OpcionesArea/AtrasOpcionesButton" to="." method="_on_atras_opciones_button_pressed"]

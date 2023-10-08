@@ -1,12 +1,14 @@
 extends Node2D
 
-var canSpawn = false
-@export var obstacleScene: PackedScene
+var Obstacle=preload("res://Scenes/Sky/SkyObstacles.tscn")
+
+var spawn = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await get_tree().create_timer(1).timeout
-	canSpawn = true
+	spawn = true
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,8 +17,9 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	if canSpawn:
-		var newObstacle = obstacleScene.instantiate()
-		newObstacle.position.y = randi_range(-25,60)
-		add_child(newObstacle)
+	if spawn:
+		var obstacle = Obstacle.instantiate()
+		obstacle.position.x=450
+		obstacle.position.y=10+randi()%250
+		add_child(obstacle)
 		

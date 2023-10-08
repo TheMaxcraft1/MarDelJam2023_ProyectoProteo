@@ -46,5 +46,7 @@ func _on_area_2d_area_entered(area):
 		get_parent().get_node("HUD/DeathMenu").set_visible(true)
 		get_parent().get_node("ObstacleSpawner").canSpawn = false
 	if area.name == "ScoreArea":
-		scoreUpSound.play()
-		ScoreController.score_up()
+		await get_tree().create_timer(0.2).timeout
+		if canMove:
+			scoreUpSound.play()
+			ScoreController.score_up()

@@ -391,6 +391,7 @@ theme_override_font_sizes/font_size = 20
 text = "Puntaje: 0"
 
 [node name="DeathMenu" type="Control" parent="HUD"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
@@ -459,13 +460,15 @@ lifetime = 5.0
 position = Vector2(32, 128)
 sprite_frames = SubResource("SpriteFrames_ivldv")
 autoplay = "default"
-frame_progress = 0.309413
+frame_progress = 0.262493
 script = ExtResource("24_k33r4")
 
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("30_dot1k")
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("31_whhxn")
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]

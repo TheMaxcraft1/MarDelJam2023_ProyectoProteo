@@ -1,7 +1,7 @@
 extends Node2D
 
 var scene_list = ["res://Scenes/WaterScene.tscn", "res://Scenes/Sky/SkyScene.tscn"]
-var maxScore = ScoreController.get_score() + 5 
+var maxScore = ScoreController.get_score() + 1 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicController.play_capibara_music()
@@ -12,8 +12,8 @@ func _ready():
 func _process(delta):
 	$HUD/ScoreLabel.set_text("Puntaje: " + str(ScoreController.get_score()))
 	
-	if ScoreController.get_score() > maxScore:
-		SceneTransition.change_scene(scene_list[randi() % scene_list.size()])
+	if ScoreController.get_score() == maxScore:
+		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 
 
 func _on_texture_button_pressed():

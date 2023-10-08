@@ -17,7 +17,6 @@ func _ready():
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
 	if score == 5:
-		await get_tree().create_timer(0.1).timeout
 		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 
 

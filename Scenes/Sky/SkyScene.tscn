@@ -186,12 +186,15 @@ texture_hover = ExtResource("25_yrt27")
 
 [node name="FlySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_blhja")
+bus = &"SFX"
 
 [node name="ScoreSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_hcg5y")
+bus = &"SFX"
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_7jwpf")
+bus = &"SFX"
 
 [node name="SceneSwitch" type="Timer" parent="."]
 wait_time = 2.996
@@ -199,10 +202,12 @@ wait_time = 2.996
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("30_c5cmg")
+bus = &"SFX"
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("31_00fvc")
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

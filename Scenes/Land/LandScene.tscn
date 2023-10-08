@@ -230,23 +230,28 @@ texture_hover = ExtResource("17_hx68t")
 position = Vector2(243, 138)
 sprite_frames = SubResource("SpriteFrames_a5fxh")
 autoplay = "default"
-frame_progress = 0.00904175
+frame_progress = 0.877984
 script = ExtResource("22_rgvo8")
 
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_ysluf")
+bus = &"SFX"
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_orkjm")
+bus = &"SFX"
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_fdhk0")
+bus = &"SFX"
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_hu4fv")
+bus = &"SFX"
 
 [node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_m6bnk")
+bus = &"SFX"
 
 [connection signal="area_entered" from="PlayerCarpincho/Area2D" to="PlayerCarpincho" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]

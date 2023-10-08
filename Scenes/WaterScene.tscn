@@ -443,12 +443,15 @@ texture_hover = ExtResource("20_n7ypb")
 
 [node name="TurtleSwim" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_fgo4x")
+bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_43ixd")
+bus = &"SFX"
 
 [node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_45ybe")
+bus = &"SFX"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(240, 135)
@@ -468,10 +471,12 @@ script = ExtResource("24_k33r4")
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("30_dot1k")
+bus = &"SFX"
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("31_whhxn")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/SpawnerTimer" to="ObstacleSpawner" method="_on_timer_timeout"]

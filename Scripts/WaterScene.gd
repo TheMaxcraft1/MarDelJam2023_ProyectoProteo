@@ -2,6 +2,7 @@ extends Node2D
 var scene_list = ["res://Scenes/Sky/SkyScene.tscn","res://Scenes/Land/LandScene.tscn"]
 var score
 var alive
+var changeScene = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicController.play_turtle_music()
@@ -14,9 +15,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
-	if score == 5:
-		await get_tree().create_timer(0.1).timeout
+	if score == 1:
+		$Player.canMove = false
 		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
+		#SceneTransition.change_scene(scene_list[randi() % scene_list.size()])
+		print("cambio")
+		
 		
 func _on_texture_button_pressed():
 	$ButtonPressed.play()

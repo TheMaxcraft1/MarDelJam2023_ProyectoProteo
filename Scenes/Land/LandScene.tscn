@@ -1,283 +1,491 @@
-[gd_scene load_steps=36 format=3 uid="uid://du4egnw0pwi1r"]
+[gd_scene load_steps=44 format=3 uid="uid://dnunqwdt5276c"]
 
-[ext_resource type="Texture2D" uid="uid://bp6lde8tew3x7" path="res://Sprites/Capybara/Capybara_1.PNG" id="1_5f5l6"]
-[ext_resource type="Script" path="res://Scripts/LandScene.gd" id="1_gu3qg"]
-[ext_resource type="Script" path="res://Scripts/LandPlayerMovement.gd" id="2_gxlkp"]
-[ext_resource type="Texture2D" uid="uid://kwqkcmmuxdat" path="res://Sprites/Capybara/fondo.PNG" id="2_nyr4u"]
-[ext_resource type="Texture2D" uid="uid://cx3cmy5f36iwd" path="res://Sprites/Capybara/Capybara_2.PNG" id="2_qhiwe"]
-[ext_resource type="Texture2D" uid="uid://bv2pbvhcue24i" path="res://Sprites/Capybara/piso.PNG" id="3_le0gm"]
-[ext_resource type="Texture2D" uid="uid://cpcw5cnmbnrsf" path="res://Sprites/Capybara/Capybara_3.PNG" id="3_w4sbb"]
-[ext_resource type="Script" path="res://Scripts/CloudsLand.gd" id="5_vcgou"]
-[ext_resource type="Texture2D" uid="uid://c728hx3gbmis1" path="res://Sprites/Capybara/nube a.PNG" id="8_sim76"]
-[ext_resource type="Texture2D" uid="uid://cipqmsw4n6dlk" path="res://Sprites/Capybara/nube b.PNG" id="9_ghis8"]
-[ext_resource type="Script" path="res://Scripts/ObstacleSpawnerLand.gd" id="10_qvdah"]
-[ext_resource type="PackedScene" uid="uid://dtn82yi2c1j8g" path="res://Scenes/Land/LandObstacle.tscn" id="11_4qvfs"]
-[ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="12_m6vqg"]
-[ext_resource type="Texture2D" uid="uid://djbnarmha2uua" path="res://Sprites/pausa.png" id="13_oestg"]
-[ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="14_g6t35"]
-[ext_resource type="Texture2D" uid="uid://bi4fxdb612x8" path="res://Sprites/Buttons/boton normal SALIR.png" id="15_bnb6v"]
-[ext_resource type="Texture2D" uid="uid://dbeo2t7shs87o" path="res://Sprites/Buttons/boton pressed salir.png" id="16_vxq8m"]
-[ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="17_hx68t"]
-[ext_resource type="Texture2D" uid="uid://b0alph1kf7cue" path="res://Sprites/Dron/IMG_1370.PNG" id="18_fw247"]
-[ext_resource type="Texture2D" uid="uid://c0nlxt5ru6yr8" path="res://Sprites/Dron/IMG_1371.PNG" id="19_v1nwj"]
-[ext_resource type="Texture2D" uid="uid://bqsx7ci7c1t7l" path="res://Sprites/Dron/IMG_1372.PNG" id="20_o5cjn"]
-[ext_resource type="Texture2D" uid="uid://b0e2chbhrn4k0" path="res://Sprites/Dron/IMG_1373.PNG" id="21_tpj2u"]
-[ext_resource type="Script" path="res://Scenes/Land/DronMovement.gd" id="22_rgvo8"]
-[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="22_ysluf"]
-[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="23_orkjm"]
-[ext_resource type="AudioStream" uid="uid://dsvd165r5wgae" path="res://Sounds/CapibaraJump.wav" id="24_fdhk0"]
-[ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="25_hu4fv"]
-[ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="26_m6bnk"]
-[ext_resource type="Texture2D" uid="uid://cmjm1abtqhefc" path="res://Sprites/piso1.png" id="29_tsbs8"]
-[ext_resource type="Texture2D" uid="uid://iyga3crwhq8f" path="res://Sprites/piso.PNG" id="30_0nxph"]
+[ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
+[ext_resource type="Texture2D" uid="uid://cl8xv3rp6pwil" path="res://Sprites/LandScene/casa a.PNG" id="2_dxu0a"]
+[ext_resource type="Texture2D" uid="uid://bo56osokytjis" path="res://Sprites/LandScene/piso.PNG" id="2_y5lh2"]
+[ext_resource type="Texture2D" uid="uid://khhjgtfa4vh0" path="res://Sprites/LandScene/Capibara/Capibara_1.PNG" id="3_5jiue"]
+[ext_resource type="Script" path="res://Scripts/Land/PlayerMovement.gd" id="3_jq4ta"]
+[ext_resource type="Texture2D" uid="uid://c8owy6rruijj3" path="res://Sprites/LandScene/casa b.PNG" id="3_mvxdb"]
+[ext_resource type="Texture2D" uid="uid://dfg4bqyfbhn25" path="res://Sprites/LandScene/nube a.PNG" id="4_pjfm3"]
+[ext_resource type="Texture2D" uid="uid://c4p5u1ic7vab6" path="res://Sprites/LandScene/Capibara/Capibara_2.PNG" id="4_tkv1a"]
+[ext_resource type="Texture2D" uid="uid://djrs2ak45fdhu" path="res://Sprites/LandScene/Capibara/Capibara_3.PNG" id="5_ddocn"]
+[ext_resource type="Texture2D" uid="uid://dam0bs2x2ammn" path="res://Sprites/LandScene/nube b.PNG" id="5_q1cjp"]
+[ext_resource type="Texture2D" uid="uid://c1vywxodhfndx" path="res://Sprites/LandScene/palmera a.PNG" id="6_2e7qh"]
+[ext_resource type="Texture2D" uid="uid://lu354pulpn6o" path="res://Sprites/LandScene/arbusto a.PNG" id="6_yemue"]
+[ext_resource type="Texture2D" uid="uid://c7c7sgpg23r8i" path="res://Sprites/LandScene/palmera b.PNG" id="8_tbga2"]
+[ext_resource type="PackedScene" uid="uid://boms6ghahbgf4" path="res://Scenes/Land/LandObstacleA.tscn" id="14_yb1eu"]
+[ext_resource type="PackedScene" uid="uid://dqhyevoqpdnqp" path="res://Scenes/Land/LandObstacleB.tscn" id="15_nhior"]
+[ext_resource type="AudioStream" uid="uid://dsvd165r5wgae" path="res://Sounds/CapibaraJump.wav" id="16_wrygb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk1c1"]
-size = Vector2(480.438, 69.9126)
+[sub_resource type="Animation" id="Animation_s5cuq"]
+resource_name = "House1_anim"
+length = 12.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_b1fic"]
+[sub_resource type="Animation" id="Animation_832je"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfhp3"]
+_data = {
+"House1_anim": SubResource("Animation_s5cuq"),
+"RESET": SubResource("Animation_832je")
+}
+
+[sub_resource type="Animation" id="Animation_2qwyt"]
+resource_name = "house2_anim"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_htvvn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8aau5"]
+_data = {
+"RESET": SubResource("Animation_htvvn"),
+"house2_anim": SubResource("Animation_2qwyt")
+}
+
+[sub_resource type="Animation" id="Animation_ln261"]
+resource_name = "nube1_anim"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_8l4if"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mn17b"]
+_data = {
+"RESET": SubResource("Animation_8l4if"),
+"nube1_anim": SubResource("Animation_ln261")
+}
+
+[sub_resource type="Animation" id="Animation_cen3f"]
+resource_name = "nube2_anim"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_2auco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hwpu"]
+_data = {
+"RESET": SubResource("Animation_2auco"),
+"nube2_anim": SubResource("Animation_cen3f")
+}
+
+[sub_resource type="Animation" id="Animation_xrm2u"]
+resource_name = "palmera1_anim"
+length = 11.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 11.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_svjwi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mfypa"]
+_data = {
+"RESET": SubResource("Animation_svjwi"),
+"palmera1_anim": SubResource("Animation_xrm2u")
+}
+
+[sub_resource type="Animation" id="Animation_l8e71"]
+resource_name = "arbusto_anim"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_erhr0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyuvm"]
+_data = {
+"RESET": SubResource("Animation_erhr0"),
+"arbusto_anim": SubResource("Animation_l8e71")
+}
+
+[sub_resource type="Animation" id="Animation_7hulx"]
+resource_name = "palmera2_anim"
+length = 5.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_gvrj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4snd"]
+_data = {
+"RESET": SubResource("Animation_gvrj7"),
+"palmera2_anim": SubResource("Animation_7hulx")
+}
+
+[sub_resource type="Animation" id="Animation_t5v0d"]
+resource_name = "GroundAnim"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 135), Vector2(-240, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_a6nm0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_suknx"]
+_data = {
+"GroundAnim": SubResource("Animation_t5v0d"),
+"RESET": SubResource("Animation_a6nm0")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqb40"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("29_tsbs8")
+"texture": ExtResource("5_ddocn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_0nxph")
+"texture": ExtResource("4_tkv1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5jiue")
 }],
-"loop": true,
-"name": &"animatedFloor",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk4jr"]
-size = Vector2(84, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_oaknt"]
-animations = [{
-"frames": [],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_5f5l6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_qhiwe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_w4sbb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_qhiwe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_5f5l6")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
+"speed": 9.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_a5fxh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_fw247")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_v1nwj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_o5cjn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_tpj2u")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfdkx"]
+size = Vector2(77, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wff4f"]
+size = Vector2(510, 20)
 
 [node name="LandScene" type="Node2D"]
-position = Vector2(-3, -3)
-script = ExtResource("1_gu3qg")
 
-[node name="background" type="ColorRect" parent="."]
-offset_top = 2.0
-offset_right = 481.0
-offset_bottom = 270.0
-scale = Vector2(1.88555, 1.00135)
-color = Color(0.85098, 0.929412, 1, 1)
-metadata/_edit_use_anchors_ = true
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
 
-[node name="Fondo" type="Sprite2D" parent="background"]
-position = Vector2(163.516, 131.822)
-scale = Vector2(0.7079, 1.01076)
-texture = ExtResource("2_nyr4u")
+[node name="BackGroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="background"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(240.147, 258.652)
-shape = SubResource("RectangleShape2D_jk1c1")
-
-[node name="floor" type="ColorRect" parent="background/StaticBody2D"]
-offset_left = -5.83383
-offset_top = 220.703
-offset_right = 476.166
-offset_bottom = 279.703
-scale = Vector2(0.707635, 1.25839)
-color = Color(1, 1, 1, 0)
-metadata/_edit_use_anchors_ = true
-
-[node name="Piso" type="Sprite2D" parent="background"]
-visible = false
-position = Vector2(197.82, 129.825)
-scale = Vector2(0.851185, 1.06455)
-texture = ExtResource("3_le0gm")
-
-[node name="NubeB" type="Sprite2D" parent="background"]
-position = Vector2(182.44, 137.814)
-scale = Vector2(0.530348, 0.998654)
-texture = ExtResource("9_ghis8")
-script = ExtResource("5_vcgou")
-
-[node name="NubeA" type="Sprite2D" parent="background"]
-position = Vector2(70.006, 116.843)
-scale = Vector2(0.530348, 0.998654)
-texture = ExtResource("8_sim76")
-script = ExtResource("5_vcgou")
-
-[node name="AnimatedFloor" type="AnimatedSprite2D" parent="."]
-position = Vector2(248, 140)
-scale = Vector2(1.05625, 1)
-sprite_frames = SubResource("SpriteFrames_b1fic")
-animation = &"animatedFloor"
-
-[node name="PlayerCarpincho" type="CharacterBody2D" parent="."]
-position = Vector2(50, 0)
-scale = Vector2(1.00554, 0.994471)
-script = ExtResource("2_gxlkp")
-jump_speed = 300.0
-gravity = 200.0
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerCarpincho"]
-position = Vector2(154.147, 203.123)
-shape = SubResource("RectangleShape2D_dk4jr")
-
-[node name="Sprite2D" type="Sprite2D" parent="PlayerCarpincho"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCarpincho"]
-position = Vector2(153, 132)
-sprite_frames = SubResource("SpriteFrames_oaknt")
-animation = &"jump"
-
-[node name="Area2D" type="Area2D" parent="PlayerCarpincho"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCarpincho/Area2D"]
-position = Vector2(154.147, 203.123)
-shape = SubResource("RectangleShape2D_dk4jr")
-
-[node name="ObstacleSpawner" type="Node2D" parent="."]
-script = ExtResource("10_qvdah")
-obstacle_scene = ExtResource("11_4qvfs")
-
-[node name="Timer" type="Timer" parent="ObstacleSpawner"]
-wait_time = 8.0
-autostart = true
-
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="ScoreLabel" type="Label" parent="HUD"]
-texture_filter = 1
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("12_m6vqg")
-theme_override_font_sizes/font_size = 20
-text = "Puntaje: 0"
-metadata/_edit_use_anchors_ = true
-
-[node name="DeathMenu" type="Control" parent="HUD"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
+[node name="BackgorundSprite" type="TextureRect" parent="ParallaxBackground/BackGroundLayer"]
 offset_right = 480.0
 offset_bottom = 270.0
+texture = ExtResource("1_46u5k")
 
-[node name="BaseSprite" type="Sprite2D" parent="HUD/DeathMenu"]
-texture_filter = 1
+[node name="House1Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="House1Sprite" type="Sprite2D" parent="ParallaxBackground/House1Layer"]
+position = Vector2(-240, 135)
+texture = ExtResource("2_dxu0a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/House1Layer/House1Sprite"]
+autoplay = "House1_anim"
+libraries = {
+"": SubResource("AnimationLibrary_nfhp3")
+}
+
+[node name="House2Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="House2Sprite" type="Sprite2D" parent="ParallaxBackground/House2Layer"]
 position = Vector2(240, 135)
-texture = ExtResource("13_oestg")
+texture = ExtResource("3_mvxdb")
 
-[node name="NooLabel" type="Label" parent="HUD/DeathMenu"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 89.0
-offset_right = 328.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("14_g6t35")
-theme_override_font_sizes/font_size = 24
-text = "¡NOOOO!"
-horizontal_alignment = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/House2Layer/House2Sprite"]
+autoplay = "house2_anim"
+libraries = {
+"": SubResource("AnimationLibrary_8aau5")
+}
 
-[node name="Label" type="Label" parent="HUD/DeathMenu"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 116.0
-offset_right = 327.0
-offset_bottom = 208.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_m6vqg")
-theme_override_font_sizes/font_size = 16
-text = "Caiste en manos del
-cazador furtivo.
-Mejor suerte para el
-resto de tu especie"
-horizontal_alignment = 1
+[node name="Nube1Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
 
-[node name="TextureButton" type="TextureButton" parent="HUD/DeathMenu"]
-layout_mode = 0
-offset_left = 168.0
-offset_top = 208.0
-offset_right = 306.0
-offset_bottom = 248.0
-scale = Vector2(1.05, 1)
-texture_normal = ExtResource("15_bnb6v")
-texture_pressed = ExtResource("16_vxq8m")
-texture_hover = ExtResource("17_hx68t")
+[node name="Nube1Sprite" type="Sprite2D" parent="ParallaxBackground/Nube1Layer"]
+position = Vector2(-240, 135)
+texture = ExtResource("4_pjfm3")
 
-[node name="Dron" type="AnimatedSprite2D" parent="."]
-position = Vector2(243, 138)
-sprite_frames = SubResource("SpriteFrames_a5fxh")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Nube1Layer/Nube1Sprite"]
+autoplay = "nube1_anim"
+libraries = {
+"": SubResource("AnimationLibrary_mn17b")
+}
+
+[node name="Nube2Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="Nube2Sprite" type="Sprite2D" parent="ParallaxBackground/Nube2Layer"]
+position = Vector2(240, 135)
+texture = ExtResource("5_q1cjp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Nube2Layer/Nube2Sprite"]
+autoplay = "nube2_anim"
+libraries = {
+"": SubResource("AnimationLibrary_2hwpu")
+}
+
+[node name="Palmera1Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Palmera1Layer"]
+position = Vector2(240, 135)
+texture = ExtResource("6_2e7qh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Palmera1Layer/Sprite2D"]
+autoplay = "palmera1_anim"
+libraries = {
+"": SubResource("AnimationLibrary_mfypa")
+}
+
+[node name="ArbustoLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="ArbustoSprite" type="Sprite2D" parent="ParallaxBackground/ArbustoLayer"]
+position = Vector2(-240, 135)
+texture = ExtResource("6_yemue")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ArbustoLayer/ArbustoSprite"]
+autoplay = "arbusto_anim"
+libraries = {
+"": SubResource("AnimationLibrary_xyuvm")
+}
+
+[node name="Palmera2Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="Palmera2Sprite" type="Sprite2D" parent="ParallaxBackground/Palmera2Layer"]
+position = Vector2(-240, 135)
+texture = ExtResource("8_tbga2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Palmera2Layer/Palmera2Sprite"]
+autoplay = "palmera2_anim"
+libraries = {
+"": SubResource("AnimationLibrary_r4snd")
+}
+
+[node name="GroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="GroundSprite" type="Sprite2D" parent="ParallaxBackground/GroundLayer"]
+position = Vector2(-240, 135)
+texture = ExtResource("2_y5lh2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/GroundLayer/GroundSprite"]
+autoplay = "GroundAnim"
+libraries = {
+"": SubResource("AnimationLibrary_suknx")
+}
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(181, 216)
+script = ExtResource("3_jq4ta")
+metadata/_edit_group_ = true
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_jqb40")
 autoplay = "default"
-frame_progress = 0.618429
-script = ExtResource("22_rgvo8")
+frame_progress = 0.41293
 
-[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_ysluf")
-bus = &"SFX"
+[node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
+position = Vector2(2.5, 6.5)
+shape = SubResource("RectangleShape2D_sfdkx")
 
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("23_orkjm")
-bus = &"SFX"
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 256)
+
+[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
+position = Vector2(245, 0)
+shape = SubResource("RectangleShape2D_wff4f")
+
+[node name="LandObstacleA" parent="." instance=ExtResource("14_yb1eu")]
+position = Vector2(743, 267)
+
+[node name="LandObstacleB" parent="." instance=ExtResource("15_nhior")]
+position = Vector2(461, 267)
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("24_fdhk0")
-bus = &"SFX"
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("25_hu4fv")
-bus = &"SFX"
-
-[node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("26_m6bnk")
-bus = &"SFX"
-
-[connection signal="area_entered" from="PlayerCarpincho/Area2D" to="PlayerCarpincho" method="_on_area_2d_area_entered"]
-[connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]
-[connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
-[connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]
+stream = ExtResource("16_wrygb")

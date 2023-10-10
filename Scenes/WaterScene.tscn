@@ -1,6 +1,6 @@
 [gd_scene load_steps=52 format=3 uid="uid://m67xm0p2b4aw"]
 
-[ext_resource type="Script" path="res://Scripts/WaterScene.gd" id="1_hfbdb"]
+[ext_resource type="Script" path="res://Scripts/Water/WaterScene.gd" id="1_gqyed"]
 [ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
 [ext_resource type="Texture2D" uid="uid://dtmnxqtswfom3" path="res://Sprites/WaterScene/WaterBackground.png" id="2_6q0fe"]
 [ext_resource type="Texture2D" uid="uid://d2vwcvqxqylvm" path="res://Sprites/WaterScene/Algae.PNG" id="3_t1vqe"]
@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://c7j5opaxngwmy" path="res://Sprites/WaterScene/pez1.PNG" id="4_0k6ew"]
 [ext_resource type="Texture2D" uid="uid://di26j1l8yhqha" path="res://Sprites/Turtle/Turtle_2.PNG" id="4_lu3mu"]
 [ext_resource type="Texture2D" uid="uid://b05gl374gy5ud" path="res://Sprites/WaterScene/pez2.PNG" id="5_f8lcy"]
-[ext_resource type="Script" path="res://Scripts/WaterPlayerMovement.gd" id="5_l1cf1"]
 [ext_resource type="Texture2D" uid="uid://dsrv6arw3fc2o" path="res://Sprites/WaterScene/pez3.PNG" id="6_d3mk3"]
 [ext_resource type="PackedScene" uid="uid://1ncju2en041h" path="res://Scenes/WaterObstacle.tscn" id="6_iqf1n"]
 [ext_resource type="Script" path="res://Scripts/ObstacleSpawner.gd" id="7_oa1yh"]
 [ext_resource type="Texture2D" uid="uid://df2mu7qdaxacm" path="res://Sprites/WaterScene/pez4.PNG" id="7_p0nxc"]
 [ext_resource type="Texture2D" uid="uid://btg3ns00w47bf" path="res://Sprites/WaterScene/burbuja 2.PNG" id="8_3mb8v"]
 [ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="8_gsfkh"]
+[ext_resource type="Script" path="res://Scripts/Water/WaterPlayerMovement.gd" id="8_iuqln"]
 [ext_resource type="AudioStream" uid="uid://ccew5ves41g2y" path="res://Sounds/TurtleSwim.wav" id="9_fgo4x"]
 [ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="10_43ixd"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="11_45ybe"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cylbjy8rq6q6a" path="res://Sprites/WaterScene/WaterDron2.PNG" id="21_tueyy"]
 [ext_resource type="Texture2D" uid="uid://0gqb1l010ke1" path="res://Sprites/WaterScene/WaterDron3.PNG" id="22_gw5c2"]
 [ext_resource type="Texture2D" uid="uid://cloys7gxifdo6" path="res://Sprites/WaterScene/WaterDron4.PNG" id="23_45cxq"]
-[ext_resource type="Script" path="res://Scripts/WaterDronMovement.gd" id="24_k33r4"]
+[ext_resource type="Script" path="res://Scripts/Water/WaterDronMovement.gd" id="29_u6ek0"]
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="30_dot1k"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="31_whhxn"]
 
@@ -285,7 +285,7 @@ animations = [{
 }]
 
 [node name="WaterScene" type="Node2D"]
-script = ExtResource("1_hfbdb")
+script = ExtResource("1_gqyed")
 
 [node name="BackGround" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -349,7 +349,7 @@ libraries = {
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(152, 135)
-script = ExtResource("5_l1cf1")
+script = ExtResource("8_iuqln")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1
@@ -466,7 +466,7 @@ position = Vector2(32, 128)
 sprite_frames = SubResource("SpriteFrames_ivldv")
 autoplay = "default"
 frame_progress = 0.262493
-script = ExtResource("24_k33r4")
+script = ExtResource("29_u6ek0")
 
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3

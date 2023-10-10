@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1ncju2en041h"]
 
 [ext_resource type="Texture2D" uid="uid://bvpb6t1l7dhk6" path="res://Sprites/WaterScene/WaterObstacle.png" id="1_6oiex"]
-[ext_resource type="Script" path="res://Scripts/WaterObstacle.gd" id="2_26h84"]
+[ext_resource type="Script" path="res://Scripts/Water/WaterObstacle.gd" id="2_ofdpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbx1t"]
 size = Vector2(64, 192)
@@ -12,7 +12,7 @@ size = Vector2(16, 206.75)
 [node name="Obstacle" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_6oiex")
-script = ExtResource("2_26h84")
+script = ExtResource("2_ofdpy")
 
 [node name="WallArea" type="Area2D" parent="."]
 

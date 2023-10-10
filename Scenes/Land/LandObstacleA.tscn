@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://boms6ghahbgf4"]
+
+[ext_resource type="Texture2D" uid="uid://bjudgf7i44blx" path="res://Sprites/LandScene/ObstaculoA.PNG" id="1_bm2od"]
+[ext_resource type="Script" path="res://Scripts/Land/LandObstacle.gd" id="1_fq0ba"]
+
+[node name="LandObstacleA" type="Node2D"]
+script = ExtResource("1_fq0ba")
+
+[node name="LandObstacleASprite" type="Sprite2D" parent="."]
+position = Vector2(0, -37)
+texture = ExtResource("1_bm2od")

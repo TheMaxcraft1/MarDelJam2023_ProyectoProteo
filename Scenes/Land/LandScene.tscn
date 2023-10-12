@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://dnunqwdt5276c"]
+[gd_scene load_steps=53 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
+[ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
 [ext_resource type="Texture2D" uid="uid://cl8xv3rp6pwil" path="res://Sprites/LandScene/casa a.PNG" id="2_dxu0a"]
 [ext_resource type="Texture2D" uid="uid://bo56osokytjis" path="res://Sprites/LandScene/piso.PNG" id="2_y5lh2"]
 [ext_resource type="Texture2D" uid="uid://khhjgtfa4vh0" path="res://Sprites/LandScene/Capibara/Capibara_1.PNG" id="3_5jiue"]
@@ -16,6 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://boms6ghahbgf4" path="res://Scenes/Land/LandObstacleA.tscn" id="14_yb1eu"]
 [ext_resource type="PackedScene" uid="uid://dqhyevoqpdnqp" path="res://Scenes/Land/LandObstacleB.tscn" id="15_nhior"]
 [ext_resource type="AudioStream" uid="uid://dsvd165r5wgae" path="res://Sounds/CapibaraJump.wav" id="16_wrygb"]
+[ext_resource type="FontFile" uid="uid://n3kkexxycn7y" path="res://Fonts/Big_Apple_3PM.ttf" id="17_31vih"]
+[ext_resource type="Texture2D" uid="uid://djbnarmha2uua" path="res://Sprites/pausa.png" id="18_irhij"]
+[ext_resource type="FontFile" uid="uid://dcrxsgv8qq52" path="res://Fonts/04B_30__.TTF" id="19_h8rs3"]
+[ext_resource type="Texture2D" uid="uid://bi4fxdb612x8" path="res://Sprites/Buttons/boton normal SALIR.png" id="20_v1mof"]
+[ext_resource type="Texture2D" uid="uid://dbeo2t7shs87o" path="res://Sprites/Buttons/boton pressed salir.png" id="21_c0rnc"]
+[ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="22_2bdup"]
+[ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="23_hee43"]
+[ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="24_fcad0"]
 
 [sub_resource type="Animation" id="Animation_s5cuq"]
 resource_name = "House1_anim"
@@ -345,6 +354,7 @@ size = Vector2(77, 43)
 size = Vector2(510, 20)
 
 [node name="LandScene" type="Node2D"]
+script = ExtResource("1_xp7yj")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
@@ -470,6 +480,12 @@ sprite_frames = SubResource("SpriteFrames_jqb40")
 autoplay = "default"
 frame_progress = 0.41293
 
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(2.5, 6.5)
+shape = SubResource("RectangleShape2D_sfdkx")
+
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
 position = Vector2(2.5, 6.5)
 shape = SubResource("RectangleShape2D_sfdkx")
@@ -489,3 +505,79 @@ position = Vector2(466, 270)
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_wrygb")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("17_31vih")
+theme_override_font_sizes/font_size = 20
+text = "Puntaje: 0"
+
+[node name="DeathMenu" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="BaseSprite" type="Sprite2D" parent="HUD/DeathMenu"]
+texture_filter = 1
+position = Vector2(240, 135)
+texture = ExtResource("18_irhij")
+
+[node name="NooLabel" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 89.0
+offset_right = 328.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("19_h8rs3")
+theme_override_font_sizes/font_size = 24
+text = "¡NOOOO!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 116.0
+offset_right = 327.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_31vih")
+theme_override_font_sizes/font_size = 16
+text = "Caiste en manos del
+cazador furtivo.
+Mejor suerte para el
+resto de tu especie"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HUD/DeathMenu"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 208.0
+offset_right = 306.0
+offset_bottom = 248.0
+scale = Vector2(1.05, 1)
+texture_normal = ExtResource("20_v1mof")
+texture_pressed = ExtResource("21_c0rnc")
+texture_hover = ExtResource("22_2bdup")
+
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("23_hee43")
+bus = &"SFX"
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("24_fcad0")
+bus = &"SFX"
+
+[connection signal="area_entered" from="Player/Area2D" to="LandObstacleA" method="_on_area_2d_area_entered"]
+[connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

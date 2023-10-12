@@ -10,8 +10,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x -= obstacle_speed * delta
-	#print("posicion obst:",position.x)
 	if position.x<5:
 		position.x=700
-		position.y=240+randi()%25
+		position.y=250+randi()%25
 	
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("obstacle"):
+		get_parent().get_node("HUD/DeathMenu").set_visible(true)

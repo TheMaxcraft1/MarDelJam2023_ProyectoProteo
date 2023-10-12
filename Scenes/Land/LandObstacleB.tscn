@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqhyevoqpdnqp"]
+[gd_scene load_steps=5 format=3 uid="uid://dqhyevoqpdnqp"]
 
 [ext_resource type="Script" path="res://Scripts/Land/LandObstacle.gd" id="1_2c16p"]
 [ext_resource type="Texture2D" uid="uid://cyqqlbxofdnp7" path="res://Sprites/LandScene/ObstaculoB.PNG" id="2_qehwq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lch8b"]
+size = Vector2(16, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nwh6"]
+size = Vector2(32, 5)
 
 [node name="LandObstacleB" type="Node2D"]
 script = ExtResource("1_2c16p")
@@ -10,3 +16,18 @@ script = ExtResource("1_2c16p")
 position = Vector2(0, -15)
 scale = Vector2(1, 1.70588)
 texture = ExtResource("2_qehwq")
+
+[node name="ObstacleArea" type="Area2D" parent="." groups=["obstacle"]]
+
+[node name="ObstacleCol" type="CollisionShape2D" parent="ObstacleArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_lch8b")
+
+[node name="PlatformArea" type="Area2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="PlatformArea"]
+position = Vector2(0, 256)
+
+[node name="GroundCollider" type="CollisionShape2D" parent="PlatformArea/Ground"]
+position = Vector2(0, -349.5)
+shape = SubResource("RectangleShape2D_8nwh6")

@@ -19,3 +19,4 @@ func _physics_process(delta):
 		capibaraJumpSound.play()
 
 	move_and_slide()
+

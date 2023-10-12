@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 const JUMP_VELOCITY = -450.0
 var capibaraJumpSound
+var scoreUpSound
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 800
 
 func _ready():
 	capibaraJumpSound = get_parent().get_node("CapibaraJump")
+	scoreUpSound = get_parent().get_node("ScoreUp")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -19,4 +21,13 @@ func _physics_process(delta):
 		capibaraJumpSound.play()
 
 	move_and_slide()
+
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("obstacle"):
+		get_parent().get_node("HUD/DeathMenu").set_visible(true)
+	elif area.get_name() == "ScoreArea":
+		scoreUpSound.play()
+		ScoreController.score_up()
 

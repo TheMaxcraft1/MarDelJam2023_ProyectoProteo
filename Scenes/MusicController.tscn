@@ -8,5 +8,3 @@ script = ExtResource("1_r8off")
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
 bus = &"Music"
-
-[connection signal="finished" from="Music" to="." method="_on_music_finished"]

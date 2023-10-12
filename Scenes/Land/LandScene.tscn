@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dnunqwdt5276c"]
+[gd_scene load_steps=54 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
 [ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="22_2bdup"]
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="23_hee43"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="24_fcad0"]
+[ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="26_d7fhb"]
 
 [sub_resource type="Animation" id="Animation_s5cuq"]
 resource_name = "House1_anim"
@@ -578,6 +579,9 @@ process_mode = 3
 stream = ExtResource("24_fcad0")
 bus = &"SFX"
 
-[connection signal="area_entered" from="Player/Area2D" to="LandObstacleA" method="_on_area_2d_area_entered"]
+[node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_d7fhb")
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

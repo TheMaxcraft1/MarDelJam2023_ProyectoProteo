@@ -16,6 +16,3 @@ func _process(delta):
 	
 
 
-func _on_area_2d_area_entered(area):
-	if area.is_in_group("obstacle"):
-		get_parent().get_node("HUD/DeathMenu").set_visible(true)

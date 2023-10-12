@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/TurtleMusic.ogg-cc67faa028a9706a4e250df73d202
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -24,6 +24,3 @@ func play_parrot_music():
 func play_turtle_music():
 	$Music.stream = turtleMusic
 	$Music.play()
-
-func _on_music_finished():
-	$Music.play

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dnunqwdt5276c"]
+[gd_scene load_steps=55 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
 [ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="23_hee43"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="24_fcad0"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="26_d7fhb"]
+[ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="27_48srv"]
 
 [sub_resource type="Animation" id="Animation_s5cuq"]
 resource_name = "House1_anim"
@@ -374,7 +375,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(-240, 135)
 texture = ExtResource("2_dxu0a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/House1Layer/House1Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/House1Layer/House1Sprite" groups=["LandParallaxAnims"]]
 autoplay = "House1_anim"
 libraries = {
 "": SubResource("AnimationLibrary_nfhp3")
@@ -387,7 +388,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(240, 135)
 texture = ExtResource("3_mvxdb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/House2Layer/House2Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/House2Layer/House2Sprite" groups=["LandParallaxAnims"]]
 autoplay = "house2_anim"
 libraries = {
 "": SubResource("AnimationLibrary_8aau5")
@@ -400,7 +401,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(-240, 135)
 texture = ExtResource("4_pjfm3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Nube1Layer/Nube1Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Nube1Layer/Nube1Sprite" groups=["LandParallaxAnims"]]
 autoplay = "nube1_anim"
 libraries = {
 "": SubResource("AnimationLibrary_mn17b")
@@ -413,7 +414,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(240, 135)
 texture = ExtResource("5_q1cjp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Nube2Layer/Nube2Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Nube2Layer/Nube2Sprite" groups=["LandParallaxAnims"]]
 autoplay = "nube2_anim"
 libraries = {
 "": SubResource("AnimationLibrary_2hwpu")
@@ -426,7 +427,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(240, 135)
 texture = ExtResource("6_2e7qh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Palmera1Layer/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Palmera1Layer/Sprite2D" groups=["LandParallaxAnims"]]
 autoplay = "palmera1_anim"
 libraries = {
 "": SubResource("AnimationLibrary_mfypa")
@@ -439,7 +440,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(-240, 135)
 texture = ExtResource("6_yemue")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ArbustoLayer/ArbustoSprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ArbustoLayer/ArbustoSprite" groups=["LandParallaxAnims"]]
 autoplay = "arbusto_anim"
 libraries = {
 "": SubResource("AnimationLibrary_xyuvm")
@@ -452,7 +453,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(-240, 135)
 texture = ExtResource("8_tbga2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Palmera2Layer/Palmera2Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/Palmera2Layer/Palmera2Sprite" groups=["LandParallaxAnims"]]
 autoplay = "palmera2_anim"
 libraries = {
 "": SubResource("AnimationLibrary_r4snd")
@@ -465,7 +466,7 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(-240, 135)
 texture = ExtResource("2_y5lh2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/GroundLayer/GroundSprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/GroundLayer/GroundSprite" groups=["LandParallaxAnims"]]
 autoplay = "GroundAnim"
 libraries = {
 "": SubResource("AnimationLibrary_suknx")
@@ -499,10 +500,10 @@ position = Vector2(245, 0)
 shape = SubResource("RectangleShape2D_wff4f")
 
 [node name="LandObstacleA" parent="." instance=ExtResource("14_yb1eu")]
-position = Vector2(743, 277)
+position = Vector2(743, 255)
 
 [node name="LandObstacleB" parent="." instance=ExtResource("15_nhior")]
-position = Vector2(466, 270)
+position = Vector2(466, 254)
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_wrygb")
@@ -581,6 +582,9 @@ bus = &"SFX"
 
 [node name="ScoreUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_d7fhb")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_48srv")
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]

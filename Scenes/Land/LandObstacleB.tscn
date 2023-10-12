@@ -7,5 +7,6 @@
 script = ExtResource("1_2c16p")
 
 [node name="LandObstacleBSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -51)
+position = Vector2(0, -15)
+scale = Vector2(1, 1.70588)
 texture = ExtResource("2_qehwq")

@@ -10,4 +10,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x -= obstacle_speed * delta
+	#print("posicion obst:",position.x)
+	if position.x<5:
+		position.x=700
+		position.y=240+randi()%25
 	

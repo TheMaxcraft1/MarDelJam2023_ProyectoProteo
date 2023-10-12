@@ -55,6 +55,21 @@ _data = {
 "RESET": SubResource("Animation_832je")
 }
 
+[sub_resource type="Animation" id="Animation_htvvn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 135)]
+}
+
 [sub_resource type="Animation" id="Animation_2qwyt"]
 resource_name = "house2_anim"
 length = 10.0
@@ -72,7 +87,13 @@ tracks/0/keys = {
 "values": [Vector2(240, 135), Vector2(-240, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_htvvn"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8aau5"]
+_data = {
+"RESET": SubResource("Animation_htvvn"),
+"house2_anim": SubResource("Animation_2qwyt")
+}
+
+[sub_resource type="Animation" id="Animation_8l4if"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -84,13 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(240, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8aau5"]
-_data = {
-"RESET": SubResource("Animation_htvvn"),
-"house2_anim": SubResource("Animation_2qwyt")
+"values": [Vector2(-240, 135)]
 }
 
 [sub_resource type="Animation" id="Animation_ln261"]
@@ -110,7 +125,13 @@ tracks/0/keys = {
 "values": [Vector2(240, 135), Vector2(-240, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_8l4if"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mn17b"]
+_data = {
+"RESET": SubResource("Animation_8l4if"),
+"nube1_anim": SubResource("Animation_ln261")
+}
+
+[sub_resource type="Animation" id="Animation_2auco"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -122,13 +143,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-240, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mn17b"]
-_data = {
-"RESET": SubResource("Animation_8l4if"),
-"nube1_anim": SubResource("Animation_ln261")
+"values": [Vector2(240, 135)]
 }
 
 [sub_resource type="Animation" id="Animation_cen3f"]
@@ -148,7 +163,13 @@ tracks/0/keys = {
 "values": [Vector2(240, 135), Vector2(-240, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_2auco"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hwpu"]
+_data = {
+"RESET": SubResource("Animation_2auco"),
+"nube2_anim": SubResource("Animation_cen3f")
+}
+
+[sub_resource type="Animation" id="Animation_svjwi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -161,12 +182,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(240, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hwpu"]
-_data = {
-"RESET": SubResource("Animation_2auco"),
-"nube2_anim": SubResource("Animation_cen3f")
 }
 
 [sub_resource type="Animation" id="Animation_xrm2u"]
@@ -186,7 +201,13 @@ tracks/0/keys = {
 "values": [Vector2(240, 135), Vector2(-240, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_svjwi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mfypa"]
+_data = {
+"RESET": SubResource("Animation_svjwi"),
+"palmera1_anim": SubResource("Animation_xrm2u")
+}
+
+[sub_resource type="Animation" id="Animation_erhr0"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -198,13 +219,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(240, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mfypa"]
-_data = {
-"RESET": SubResource("Animation_svjwi"),
-"palmera1_anim": SubResource("Animation_xrm2u")
+"values": [Vector2(-240, 135)]
 }
 
 [sub_resource type="Animation" id="Animation_l8e71"]
@@ -224,7 +239,13 @@ tracks/0/keys = {
 "values": [Vector2(240, 135), Vector2(-240, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_erhr0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyuvm"]
+_data = {
+"RESET": SubResource("Animation_erhr0"),
+"arbusto_anim": SubResource("Animation_l8e71")
+}
+
+[sub_resource type="Animation" id="Animation_gvrj7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -237,12 +258,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-240, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyuvm"]
-_data = {
-"RESET": SubResource("Animation_erhr0"),
-"arbusto_anim": SubResource("Animation_l8e71")
 }
 
 [sub_resource type="Animation" id="Animation_7hulx"]
@@ -260,21 +275,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(240, 135), Vector2(-240, 135)]
-}
-
-[sub_resource type="Animation" id="Animation_gvrj7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-240, 135)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r4snd"]
@@ -482,10 +482,10 @@ position = Vector2(245, 0)
 shape = SubResource("RectangleShape2D_wff4f")
 
 [node name="LandObstacleA" parent="." instance=ExtResource("14_yb1eu")]
-position = Vector2(743, 267)
+position = Vector2(743, 277)
 
 [node name="LandObstacleB" parent="." instance=ExtResource("15_nhior")]
-position = Vector2(461, 267)
+position = Vector2(466, 270)
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_wrygb")

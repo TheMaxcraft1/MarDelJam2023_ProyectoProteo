@@ -28,7 +28,11 @@ func _on_jugar_button_pressed():
 	$ButtonPressed.play()
 	await $ButtonPressed.finished
 	#get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
-	SceneTransition.change_scene(scene_list[randi() % scene_list.size()])
+	$CanvasLayer.set_visible(false)
+	$MainContainer.set_visible(false)
+	$LoreScreen.set_visible(true)
+	
+	#SceneTransition.change_scene(scene_list[randi() % scene_list.size()])
 
 
 func _on_jugar_button_mouse_entered():
@@ -60,3 +64,17 @@ func _on_atras_opciones_button_pressed():
 	$ButtonPressed.play()
 	$MainContainer.set_visible(true)
 	$OpcionesArea.set_visible(false)
+
+
+func _on_next_button_pressed():
+	$ButtonPressed.play()
+	$LoreScreen/Lore1.set_visible(false)
+	$LoreScreen/Lore2.set_visible(true)
+	if $LoreScreen/Lore2.is_visible_in_tree():
+		$LoreScreen/NextButton.set_visible(false)
+		$LoreScreen/InitButton.set_visible(true)	
+
+
+func _on_init_button_pressed():
+	$ButtonPressed.play()
+	SceneTransition.change_scene(scene_list[randi() % scene_list.size()])

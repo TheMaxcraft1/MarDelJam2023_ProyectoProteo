@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dqebi8as86bda"]
+[gd_scene load_steps=47 format=3 uid="uid://dqebi8as86bda"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu/MainMenu.gd" id="1_gyogt"]
 [ext_resource type="Texture2D" uid="uid://45a1u32eybi4" path="res://Sprites/Buttons/boton normal JUGAR.png" id="2_3jbxu"]
@@ -25,6 +25,11 @@
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="13_62nfd"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="14_gbi74"]
 [ext_resource type="PackedScene" uid="uid://c71j3dhxcj7kb" path="res://Scenes/VolumeSlider.tscn" id="15_81feb"]
+[ext_resource type="Texture2D" uid="uid://b434jdudl47vw" path="res://Sprites/MainMenu/Lore/lore1.png" id="26_qp6je"]
+[ext_resource type="Texture2D" uid="uid://0a0x0yi1cpe6" path="res://Sprites/MainMenu/Lore/lore2.png" id="27_wiwj1"]
+[ext_resource type="Texture2D" uid="uid://bip53ovwar25c" path="res://Sprites/MainMenu/Lore/BOTON normal siguiente.png" id="28_2bbxd"]
+[ext_resource type="Texture2D" uid="uid://dskouoinyljym" path="res://Sprites/MainMenu/Lore/BOTON pressed siguiente.png" id="29_tiokx"]
+[ext_resource type="Texture2D" uid="uid://6x6gny3bggg4" path="res://Sprites/MainMenu/Lore/BOTON hover siguiente.png" id="30_rgxij"]
 
 [sub_resource type="Animation" id="Animation_wwal2"]
 length = 0.001
@@ -520,6 +525,39 @@ text = "SFX"
 layout_mode = 2
 bus_name = "SFX"
 
+[node name="LoreScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Lore1" type="Sprite2D" parent="LoreScreen"]
+position = Vector2(240, 135)
+scale = Vector2(1.00417, 1)
+texture = ExtResource("26_qp6je")
+
+[node name="Lore2" type="Sprite2D" parent="LoreScreen"]
+visible = false
+position = Vector2(239, 135)
+scale = Vector2(1.00417, 1)
+texture = ExtResource("27_wiwj1")
+
+[node name="NextButton" type="TextureButton" parent="LoreScreen"]
+offset_left = 170.0
+offset_top = 195.0
+offset_right = 308.0
+offset_bottom = 235.0
+texture_normal = ExtResource("28_2bbxd")
+texture_pressed = ExtResource("29_tiokx")
+texture_hover = ExtResource("30_rgxij")
+
+[node name="InitButton" type="TextureButton" parent="LoreScreen"]
+visible = false
+offset_left = 169.0
+offset_top = 195.0
+offset_right = 307.0
+offset_bottom = 235.0
+texture_normal = ExtResource("28_2bbxd")
+texture_pressed = ExtResource("29_tiokx")
+texture_hover = ExtResource("30_rgxij")
+
 [connection signal="mouse_entered" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
 [connection signal="mouse_entered" from="MainContainer/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_mouse_entered"]
@@ -530,3 +568,5 @@ bus_name = "SFX"
 [connection signal="pressed" from="CreditosArea/AtrasButton" to="." method="_on_atras_button_pressed"]
 [connection signal="mouse_entered" from="OpcionesArea/AtrasOpcionesButton" to="." method="_on_atras_opciones_button_mouse_entered"]
 [connection signal="pressed" from="OpcionesArea/AtrasOpcionesButton" to="." method="_on_atras_opciones_button_pressed"]
+[connection signal="pressed" from="LoreScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="LoreScreen/InitButton" to="." method="_on_init_button_pressed"]

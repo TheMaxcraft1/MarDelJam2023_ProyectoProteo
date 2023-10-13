@@ -32,8 +32,8 @@ func _physics_process(delta):
 			get_parent().alive=false
 			hitSound.play()
 			get_parent().get_node("HUD/DeathMenu").set_visible(true)
-		if position.y > 270:
-			position.y = 270
+		if position.y > 230:
+			position.y = 230
 			dy = 0
 
 

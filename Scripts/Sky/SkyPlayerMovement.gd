@@ -35,14 +35,14 @@ func coll(charac):
 		speed=speed*-1
 		GRAVITY*=-1
 
-	if position.y>=250:
+	if position.y>=230:
 		speed=speed*-1
 		GRAVITY*=-1
 	
 	if 15>=position.y:
 		position.y=40
-	if position.y>=255:
-		position.y=245
+	if position.y>=230:
+		position.y=230
 	velocity=charac*speed
 	velocity.y+=GRAVITY
 		

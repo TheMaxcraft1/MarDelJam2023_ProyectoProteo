@@ -9,5 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	position.y = lerp(position.y, turtleNode.position.y, 5*delta)
+	if position.y>=225:
+		position.y=225

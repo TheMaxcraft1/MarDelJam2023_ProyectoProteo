@@ -203,17 +203,17 @@ script = ExtResource("12_0t3bq")
 [node name="SpriteObs" parent="." instance=ExtResource("13_fvrk1")]
 position = Vector2(628, 167)
 
-[node name="DronAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(244, 109)
-sprite_frames = SubResource("SpriteFrames_7idt8")
-animation = &"dronAnimation"
-script = ExtResource("18_oj5ec")
-
 [node name="ObstacleSpawner" parent="." instance=ExtResource("18_bjdhc")]
 
 [node name="Player" parent="." instance=ExtResource("19_0n404")]
 visible = false
 position = Vector2(184, 141)
+
+[node name="DronAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(244, 109)
+sprite_frames = SubResource("SpriteFrames_7idt8")
+animation = &"dronAnimation"
+script = ExtResource("18_oj5ec")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

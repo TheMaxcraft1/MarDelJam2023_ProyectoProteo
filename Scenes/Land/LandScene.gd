@@ -3,12 +3,14 @@ var scene_list = ["res://Scenes/WaterScene.tscn","res://Scenes/Sky/SkyScene.tscn
 var MAX_SCORE = 10
 var score_to_change = ScoreController.get_score() + MAX_SCORE
 var alive
+@onready var _animated_sprite = $DronAnimation
 @onready var transition = $Transition
 @onready var poof = $PoofAnimation
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicController.play_capibara_music()
 	MusicController.play_poof_sound()
+	_animated_sprite.play("dronAnimation")
 	poof.play("poofAnimation")
 	$Player.canMove = false
 	if LastScene.lastScene=="parrot":

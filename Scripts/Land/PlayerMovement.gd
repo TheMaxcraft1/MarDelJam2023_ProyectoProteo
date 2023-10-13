@@ -39,6 +39,10 @@ func _process(delta):
 		await get_tree().create_timer(0.5).timeout
 		if get_parent().alive==true && ScoreController.get_score()!=10:
 			canMove=true
+			
+	if 30>=position.y:
+		position.y=30
+		velocity.y += gravity * delta
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("obstacle"):
 		LastScene.lastScene=""

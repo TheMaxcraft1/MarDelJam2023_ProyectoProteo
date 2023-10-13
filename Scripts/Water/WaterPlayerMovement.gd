@@ -42,7 +42,7 @@ func _process(_delta):
 		canMove=false
 	else:
 		await get_tree().create_timer(1).timeout
-		if get_parent().alive==true && get_parent().score!=5:
+		if get_parent().alive==true && get_parent().score!=8:
 			canMove=true
 
 

@@ -37,7 +37,7 @@ func _physics_process(delta):
 			dy = 0
 
 
-func _process(delta):
+func _process(_delta):
 	if get_parent().get_node("ParrotToTurtle").is_playing() || get_parent().get_node("CapyToTurtle").is_playing():
 		canMove=false
 	else:

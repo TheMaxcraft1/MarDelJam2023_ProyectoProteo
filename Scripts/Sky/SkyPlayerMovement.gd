@@ -14,12 +14,12 @@ func _ready():
 	hitSound=get_parent().get_node("HitSound")
 	
 func get_input():
-	var input_direction = Input.get_vector("", "", "", "WaterJump")
+	var input_direction = Input.get_vector("null", "null", "null", "WaterJump")
 	if Input.is_action_just_pressed("WaterJump"):
 		flySound.play()
 	coll(input_direction)
 	
-func _process(delta):
+func _process(_delta):
 	if get_parent().get_node("TurtleToBird").is_playing() || get_parent().get_node("CapyToParrot").is_playing():
 		GRAVITY=0
 		move=false
@@ -46,12 +46,12 @@ func coll(charac):
 	velocity=charac*speed
 	velocity.y+=GRAVITY
 		
-func _physics_process(delta):
+func _physics_process(_delta):
 	if move:
 		get_input()
 		move_and_slide()
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
+		#for i in get_slide_collision_count():
+			#var collision = get_slide_collision(i)
 		_animated_sprite.play("fly")
 	
 

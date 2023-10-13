@@ -28,7 +28,7 @@ func _ready():
 	LastScene.lastScene="turtle"
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
 	if score == 8:
 		$Player.canMove = false

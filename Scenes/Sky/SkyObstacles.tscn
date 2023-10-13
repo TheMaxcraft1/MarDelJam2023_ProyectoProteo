@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/Sky/ScoreCollision.gd" id="2_1qgt0"]
 [ext_resource type="Texture2D" uid="uid://d4hypm71krs6e" path="res://Sprites/SkyScene/IMG_1360 (1).png" id="3_0a7ns"]
-[ext_resource type="Script" path="res://Scripts/Sky/Area2D3.gd" id="4_mdk2y"]
 [ext_resource type="PackedScene" uid="uid://h8hu3khm6o6d" path="res://Scenes/Sky/score.tscn" id="6_tdrus"]
 
 [sub_resource type="GDScript" id="GDScript_6pu4i"]
-script/source = "extends Sprite2D
-
-
-
+script/source = "extends Node
 "
 
 [sub_resource type="GDScript" id="GDScript_85owd"]
@@ -33,6 +29,8 @@ func _physics_process(delta):
 	#if position.x < -2000:
 	#free()
 "
+
+[sub_resource type="GDScript" id="GDScript_u14h4"]
 
 [node name="SpriteObs" type="Sprite2D"]
 position = Vector2(559, 191)
@@ -60,7 +58,7 @@ position = Vector2(-225.6, -16.7169)
 
 [node name="Area2D3" type="Area2D" parent="." groups=["obstacle"]]
 position = Vector2(-1.50403, 1.39307)
-script = ExtResource("4_mdk2y")
+script = SubResource("GDScript_u14h4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
 position = Vector2(44.368, -13.9307)

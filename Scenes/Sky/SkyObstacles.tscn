@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dooamjcp0rkns"]
+[gd_scene load_steps=9 format=3 uid="uid://dooamjcp0rkns"]
 
 [ext_resource type="Script" path="res://Scripts/Sky/ScoreCollision.gd" id="2_1qgt0"]
 [ext_resource type="Texture2D" uid="uid://d4hypm71krs6e" path="res://Sprites/SkyScene/IMG_1360 (1).png" id="3_0a7ns"]
+[ext_resource type="Script" path="res://Scripts/Sky/Area2D3.gd" id="4_mdk2y"]
 [ext_resource type="PackedScene" uid="uid://h8hu3khm6o6d" path="res://Scenes/Sky/score.tscn" id="6_tdrus"]
 
 [sub_resource type="GDScript" id="GDScript_6pu4i"]
@@ -29,8 +30,8 @@ script/source = "extends CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	position.x -= 120 * delta
-	if position.x < -1500:
-		free()
+	#if position.x < -2000:
+	#free()
 "
 
 [node name="SpriteObs" type="Sprite2D"]
@@ -39,7 +40,7 @@ scale = Vector2(0.664893, 0.717836)
 script = SubResource("GDScript_6pu4i")
 
 [node name="Area2D" type="Area2D" parent="." groups=["obstacle"]]
-position = Vector2(129.344, -146.273)
+position = Vector2(600, -146.273)
 script = SubResource("GDScript_85owd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
@@ -59,6 +60,7 @@ position = Vector2(-225.6, -16.7169)
 
 [node name="Area2D3" type="Area2D" parent="." groups=["obstacle"]]
 position = Vector2(-1.50403, 1.39307)
+script = ExtResource("4_mdk2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
 position = Vector2(44.368, -13.9307)

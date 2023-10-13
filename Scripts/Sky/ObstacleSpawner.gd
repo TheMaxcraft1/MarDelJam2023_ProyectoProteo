@@ -21,7 +21,9 @@ func _on_timer_timeout():
 		var obstacle = Obstacle.instantiate()
 		obstacle.position.x=400
 		obstacle.position.y=10+randi()%250
-		if obstacle.position.y<0:
+		if obstacle.position.y<50:
 			obstacle.position.y=80
+		if obstacle.position.y>220:
+			obstacle.position.y=199
 		add_child(obstacle)
 		

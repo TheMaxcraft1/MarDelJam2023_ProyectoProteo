@@ -31,7 +31,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD/ScoreLabel.set_text("PUNTAJE: " +  str(ScoreController.get_score()))
-	if score == 10:
+	if score == 50 && alive:
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 	if !$TurtleToBird.is_playing() && !$CapyToParrot.is_playing():

@@ -617,10 +617,10 @@ position = Vector2(245, 0)
 shape = SubResource("RectangleShape2D_wff4f")
 
 [node name="LandObstacleA" parent="." instance=ExtResource("14_yb1eu")]
-position = Vector2(1122, 259)
+position = Vector2(1296, 245)
 
 [node name="LandObstacleB" parent="." instance=ExtResource("15_nhior")]
-position = Vector2(862, 261)
+position = Vector2(1024, 236)
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_wrygb")

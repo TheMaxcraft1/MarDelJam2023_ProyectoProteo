@@ -36,7 +36,6 @@ func _process(delta):
 	if get_parent().get_node("Transition").is_playing():
 		canMove=false
 	else:
-		await get_tree().create_timer(0.5).timeout
 		if get_parent().alive==true && ScoreController.get_score()!=10:
 			canMove=true
 			

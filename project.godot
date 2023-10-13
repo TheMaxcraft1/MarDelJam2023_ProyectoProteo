@@ -28,6 +28,7 @@ LastScene="*res://Scripts/lastScene.gd"
 window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/resizable=false
+window/stretch/mode="viewport"
 
 [input]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=80 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
-[ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
+[ext_resource type="Script" path="res://Scripts/Land/LandScene.gd" id="1_ah8uc"]
 [ext_resource type="Texture2D" uid="uid://cl8xv3rp6pwil" path="res://Sprites/LandScene/casa a.PNG" id="2_dxu0a"]
 [ext_resource type="Texture2D" uid="uid://bo56osokytjis" path="res://Sprites/LandScene/piso.PNG" id="2_y5lh2"]
 [ext_resource type="Texture2D" uid="uid://khhjgtfa4vh0" path="res://Sprites/LandScene/Capibara/Capibara_1.PNG" id="3_5jiue"]
@@ -376,6 +376,32 @@ size = Vector2(77, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wff4f"]
 size = Vector2(510, 20)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev0k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_r4du1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vy1tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_iukfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_n8ed4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_aku07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_d4mwr")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_uj5r3"]
 animations = [{
 "frames": [{
@@ -422,32 +448,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ev0k7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("33_r4du1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_vy1tf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_iukfu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_n8ed4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_aku07")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_d4mwr")
-}],
-"loop": false,
-"name": &"poofAnimation",
-"speed": 10.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3jno"]
 animations = [{
 "frames": [{
@@ -475,7 +475,7 @@ animations = [{
 }]
 
 [node name="LandScene" type="Node2D"]
-script = ExtResource("1_xp7yj")
+script = ExtResource("1_ah8uc")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
@@ -592,7 +592,6 @@ libraries = {
 }
 
 [node name="Player" type="CharacterBody2D" parent="."]
-visible = false
 position = Vector2(181, 216)
 script = ExtResource("3_jq4ta")
 metadata/_edit_group_ = true
@@ -706,6 +705,14 @@ stream = ExtResource("26_d7fhb")
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_48srv")
 
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(185, 186)
+scale = Vector2(2.16875, 1.75625)
+sprite_frames = SubResource("SpriteFrames_ev0k7")
+animation = &"poofAnimation"
+frame = 3
+frame_progress = 1.0
+
 [node name="TurtleToCapy" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(181, 136)
@@ -719,14 +726,6 @@ position = Vector2(181.625, 138)
 scale = Vector2(0.984896, 1.01481)
 sprite_frames = SubResource("SpriteFrames_5br7r")
 animation = &"parrotToCapy"
-
-[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(185, 186)
-scale = Vector2(2.16875, 1.75625)
-sprite_frames = SubResource("SpriteFrames_ev0k7")
-animation = &"poofAnimation"
-frame = 3
-frame_progress = 1.0
 
 [node name="DronAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(244, 109)

@@ -78,6 +78,32 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_58hyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_34dg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_keays")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_65wk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_qel6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_wsmpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_s5avh")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wk0uh"]
 animations = [{
 "frames": [{
@@ -128,32 +154,6 @@ animations = [{
 "loop": false,
 "name": &"capyToParrot",
 "speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_58hyf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("44_34dg5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_keays")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_65wk1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_qel6c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_wsmpv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_s5avh")
-}],
-"loop": false,
-"name": &"poofAnimation",
-"speed": 10.0
 }]
 
 [node name="SkyScene" type="Node2D"]
@@ -301,6 +301,12 @@ process_mode = 3
 stream = ExtResource("31_00fvc")
 bus = &"SFX"
 
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(195, 137)
+scale = Vector2(1.67938, 1.49813)
+sprite_frames = SubResource("SpriteFrames_58hyf")
+animation = &"poofAnimation"
+
 [node name="TurtleToBird" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(183.938, 124.438)
@@ -318,12 +324,6 @@ sprite_frames = SubResource("SpriteFrames_axh4t")
 animation = &"capyToParrot"
 frame = 5
 frame_progress = 1.0
-
-[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(195, 137)
-scale = Vector2(1.67938, 1.49813)
-sprite_frames = SubResource("SpriteFrames_58hyf")
-animation = &"poofAnimation"
 
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

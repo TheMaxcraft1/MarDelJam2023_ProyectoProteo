@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dnunqwdt5276c"]
+[gd_scene load_steps=72 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
 [ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
@@ -27,6 +27,21 @@
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="24_fcad0"]
 [ext_resource type="AudioStream" uid="uid://cevgswpowjeeg" path="res://Sounds/ScoreUpSound.wav" id="26_d7fhb"]
 [ext_resource type="AudioStream" uid="uid://btxk5yhm1s73q" path="res://Sounds/HitSound.wav" id="27_48srv"]
+[ext_resource type="Texture2D" uid="uid://cmemsfphaay3h" path="res://Sprites/ParrotToCapy/ptc_1.PNG" id="28_0kru7"]
+[ext_resource type="Texture2D" uid="uid://dynpvjf21lmxk" path="res://Sprites/ParrotToCapy/ptc_2.PNG" id="29_ax7h7"]
+[ext_resource type="Texture2D" uid="uid://jugo80cysx4t" path="res://Sprites/ParrotToCapy/ptc_3.PNG" id="30_28vym"]
+[ext_resource type="Texture2D" uid="uid://qdps6o756l2y" path="res://Sprites/ParrotToCapy/ptc_4.PNG" id="31_1jsn7"]
+[ext_resource type="Texture2D" uid="uid://dpshiyd53c50e" path="res://Sprites/ParrotToCapy/ptc_5.PNG" id="32_e0ho7"]
+[ext_resource type="Texture2D" uid="uid://r3o28qngxelp" path="res://Sprites/TurtleToCapy/ttc_1.PNG" id="33_6kyh3"]
+[ext_resource type="Texture2D" uid="uid://nqv4arsoe8rl" path="res://Sprites/Poof/poof1.png" id="33_r4du1"]
+[ext_resource type="Texture2D" uid="uid://by07a7crlvmnj" path="res://Sprites/TurtleToCapy/ttc_2.PNG" id="34_ckcro"]
+[ext_resource type="Texture2D" uid="uid://c8jrjhilveno" path="res://Sprites/Poof/poof2.png" id="34_vy1tf"]
+[ext_resource type="Texture2D" uid="uid://cnqg55maj56o8" path="res://Sprites/TurtleToCapy/ttc_3.PNG" id="35_i15oe"]
+[ext_resource type="Texture2D" uid="uid://cp4jt1t6h8ea" path="res://Sprites/Poof/poof3.png" id="35_iukfu"]
+[ext_resource type="Texture2D" uid="uid://bddwlf6h5eu4n" path="res://Sprites/Poof/poof4.png" id="36_aku07"]
+[ext_resource type="Texture2D" uid="uid://byt87vpjx1j7s" path="res://Sprites/TurtleToCapy/ttc_4.PNG" id="36_ht7s5"]
+[ext_resource type="Texture2D" uid="uid://biek2k3waapw2" path="res://Sprites/TurtleToCapy/ttc_5.PNG" id="37_1q4lv"]
+[ext_resource type="Texture2D" uid="uid://c1nub8nhwnont" path="res://Sprites/Poof/poof4_5.png" id="37_n8ed4"]
 
 [sub_resource type="Animation" id="Animation_s5cuq"]
 resource_name = "House1_anim"
@@ -355,6 +370,72 @@ size = Vector2(77, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wff4f"]
 size = Vector2(510, 20)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj5r3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_0kru7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ax7h7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_28vym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_1jsn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_e0ho7")
+}],
+"loop": false,
+"name": &"parrotToCapy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_6kyh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ckcro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_i15oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ht7s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_1q4lv")
+}],
+"loop": false,
+"name": &"turtleToCapy",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev0k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_r4du1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vy1tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_iukfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_aku07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_n8ed4")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
+}]
+
 [node name="LandScene" type="Node2D"]
 script = ExtResource("1_xp7yj")
 
@@ -473,6 +554,7 @@ libraries = {
 }
 
 [node name="Player" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(181, 216)
 script = ExtResource("3_jq4ta")
 metadata/_edit_group_ = true
@@ -500,10 +582,10 @@ position = Vector2(245, 0)
 shape = SubResource("RectangleShape2D_wff4f")
 
 [node name="LandObstacleA" parent="." instance=ExtResource("14_yb1eu")]
-position = Vector2(743, 255)
+position = Vector2(1122, 259)
 
 [node name="LandObstacleB" parent="." instance=ExtResource("15_nhior")]
-position = Vector2(466, 254)
+position = Vector2(862, 261)
 
 [node name="CapibaraJump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_wrygb")
@@ -585,6 +667,21 @@ stream = ExtResource("26_d7fhb")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_48srv")
+
+[node name="Transition" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(181, 136)
+scale = Vector2(1.02845, 1.03211)
+sprite_frames = SubResource("SpriteFrames_uj5r3")
+animation = &"new_animation"
+
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(185, 186)
+scale = Vector2(2.16875, 1.75625)
+sprite_frames = SubResource("SpriteFrames_ev0k7")
+animation = &"poofAnimation"
+frame = 4
+frame_progress = 1.0
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]

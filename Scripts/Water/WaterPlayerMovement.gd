@@ -29,6 +29,7 @@ func _physics_process(delta):
 		if position.y < 0:
 			position.y = 0
 			canMove = false
+			get_parent().alive=false
 			hitSound.play()
 			get_parent().get_node("HUD/DeathMenu").set_visible(true)
 		if position.y > 270:
@@ -37,7 +38,12 @@ func _physics_process(delta):
 
 
 func _process(delta):
-	pass
+	if get_parent().get_node("ParrotToTurtle").is_playing() || get_parent().get_node("CapyToTurtle").is_playing():
+		canMove=false
+	else:
+		await get_tree().create_timer(1).timeout
+		if get_parent().alive==true && get_parent().score!=5:
+			canMove=true
 
 
 func _on_area_2d_area_entered(area):

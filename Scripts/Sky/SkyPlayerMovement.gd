@@ -19,7 +19,17 @@ func get_input():
 		flySound.play()
 	coll(input_direction)
 	
-
+func _process(delta):
+	if get_parent().get_node("TurtleToBird").is_playing() || get_parent().get_node("CapyToParrot").is_playing():
+		GRAVITY=0
+		move=false
+	else:
+		GRAVITY=15
+		await get_tree().create_timer(0.5).timeout
+		if get_parent().alive==true && get_parent().score!=10:
+			move=true
+		
+	
 func coll(charac):
 	if 20>=position.y:
 		speed=speed*-1
@@ -53,6 +63,7 @@ func _on_area_2d_area_entered(area):
 		move=false
 		get_parent().alive=false
 		get_parent().get_node("HUD/DeathMenu").set_visible(true)
+		LastScene.lastScene=""
 	else:
 		await get_tree().create_timer(0.5).timeout
 		if get_parent().alive:

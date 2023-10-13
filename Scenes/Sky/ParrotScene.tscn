@@ -26,15 +26,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfrrn"]
-size = Vector2(44, 22)
+size = Vector2(41, 28)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(99, 69)
 script = ExtResource("1_nd7wp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(62, -22)
-scale = Vector2(0.414583, 0.401852)
+position = Vector2(70.25, -15.625)
+scale = Vector2(0.448958, 0.449074)
 sprite_frames = SubResource("SpriteFrames_2csvu")
 animation = &"fly"
 
@@ -42,6 +42,7 @@ animation = &"fly"
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 10)
 shape = SubResource("RectangleShape2D_kfrrn")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

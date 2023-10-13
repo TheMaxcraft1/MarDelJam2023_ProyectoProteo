@@ -8,3 +8,5 @@ script = ExtResource("1_r8off")
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
 bus = &"Music"
+
+[node name="GlobalSounds" type="AudioStreamPlayer2D" parent="."]

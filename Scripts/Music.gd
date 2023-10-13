@@ -4,6 +4,7 @@ var turtleMusic = load("res://Music/TurtleMusic.ogg")
 var capibaraMusic = load("res://Music/CapibaraMusic.ogg")
 var parrotMusic = load("res://Music/ParrotMusic.ogg")
 var mainMenuMusic = load("res://Music/MainMenuMusic.ogg")
+var poofSound=load("res://Sounds/poof-80161.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,3 +25,7 @@ func play_parrot_music():
 func play_turtle_music():
 	$Music.stream = turtleMusic
 	$Music.play()
+
+func play_poof_sound():
+	$GlobalSounds.stream=poofSound
+	$GlobalSounds.play()

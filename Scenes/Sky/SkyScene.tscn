@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://doynxgm3c2w2k"]
+[gd_scene load_steps=53 format=3 uid="uid://doynxgm3c2w2k"]
 
 [ext_resource type="Script" path="res://Scripts/Sky/SkyScene.gd" id="1_2s3p8"]
 [ext_resource type="Texture2D" uid="uid://cj2mswasb0op" path="res://Sprites/SkyScene/IMG_1325.PNG" id="2_ymd2s"]
@@ -31,6 +31,23 @@
 [ext_resource type="Texture2D" uid="uid://dk327skrb6ss0" path="res://Sprites/Buttons/BOTON hover salir.png" id="25_yrt27"]
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="30_c5cmg"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="31_00fvc"]
+[ext_resource type="Texture2D" uid="uid://b1tpooouyhm30" path="res://Sprites/TurtleToParrot/ttb_1.PNG" id="32_j30e8"]
+[ext_resource type="Texture2D" uid="uid://cj3obpmgvxxfs" path="res://Sprites/TurtleToParrot/ttb_2.PNG" id="33_iv2ws"]
+[ext_resource type="Texture2D" uid="uid://bkyqad5hfsous" path="res://Sprites/TurtleToParrot/ttb_3.PNG" id="34_tbt3q"]
+[ext_resource type="Texture2D" uid="uid://chkokqyl6k42t" path="res://Sprites/TurtleToParrot/ttb_4.PNG" id="35_02505"]
+[ext_resource type="Texture2D" uid="uid://0682c1uql7i3" path="res://Sprites/TurtleToParrot/ttb_5.PNG" id="36_nj2gr"]
+[ext_resource type="Texture2D" uid="uid://ds47o2d4d3hhg" path="res://Sprites/TurtleToParrot/ttb_6.PNG" id="37_ttv8m"]
+[ext_resource type="Texture2D" uid="uid://iir0wwmnsdk5" path="res://Sprites/CapyToParrot/ctp_1.PNG" id="38_yschv"]
+[ext_resource type="Texture2D" uid="uid://dwux5ok0cf0de" path="res://Sprites/CapyToParrot/ctp_2.PNG" id="39_n810e"]
+[ext_resource type="Texture2D" uid="uid://m3aw830vc5wf" path="res://Sprites/CapyToParrot/ctp_3.PNG" id="40_w7a4k"]
+[ext_resource type="Texture2D" uid="uid://c1lsvjm8loeqr" path="res://Sprites/CapyToParrot/ctp_4.PNG" id="41_l6cv6"]
+[ext_resource type="Texture2D" uid="uid://nyd3u2co4eti" path="res://Sprites/CapyToParrot/ctp_5.PNG" id="42_krvoe"]
+[ext_resource type="Texture2D" uid="uid://cjh40bp85vsps" path="res://Sprites/CapyToParrot/ctp_6.PNG" id="43_uff72"]
+[ext_resource type="Texture2D" uid="uid://nqv4arsoe8rl" path="res://Sprites/Poof/poof1.png" id="44_34dg5"]
+[ext_resource type="Texture2D" uid="uid://c8jrjhilveno" path="res://Sprites/Poof/poof2.png" id="45_keays"]
+[ext_resource type="Texture2D" uid="uid://cp4jt1t6h8ea" path="res://Sprites/Poof/poof3.png" id="46_65wk1"]
+[ext_resource type="Texture2D" uid="uid://bddwlf6h5eu4n" path="res://Sprites/Poof/poof4.png" id="47_wsmpv"]
+[ext_resource type="Texture2D" uid="uid://c1nub8nhwnont" path="res://Sprites/Poof/poof4_5.png" id="48_qel6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7idt8"]
 animations = [{
@@ -56,6 +73,81 @@ animations = [{
 "loop": true,
 "name": &"dronAnimation",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wk0uh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_j30e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_iv2ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_tbt3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_02505")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_nj2gr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ttv8m")
+}],
+"loop": false,
+"name": &"turtletobird",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axh4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_yschv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_n810e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_w7a4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_l6cv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_krvoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_uff72")
+}],
+"loop": false,
+"name": &"capyToParrot",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58hyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_34dg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_keays")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_65wk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_wsmpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_qel6c")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
 }]
 
 [node name="SkyScene" type="Node2D"]
@@ -112,7 +204,7 @@ script = ExtResource("12_0t3bq")
 position = Vector2(628, 167)
 
 [node name="DronAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(243, 106)
+position = Vector2(244, 109)
 sprite_frames = SubResource("SpriteFrames_7idt8")
 animation = &"dronAnimation"
 script = ExtResource("18_oj5ec")
@@ -120,6 +212,7 @@ script = ExtResource("18_oj5ec")
 [node name="ObstacleSpawner" parent="." instance=ExtResource("18_bjdhc")]
 
 [node name="Player" parent="." instance=ExtResource("19_0n404")]
+visible = false
 position = Vector2(184, 141)
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -208,6 +301,30 @@ bus = &"SFX"
 process_mode = 3
 stream = ExtResource("31_00fvc")
 bus = &"SFX"
+
+[node name="TurtleToBird" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(183.938, 124.438)
+scale = Vector2(0.47526, 0.463426)
+sprite_frames = SubResource("SpriteFrames_wk0uh")
+animation = &"turtletobird"
+frame = 5
+frame_progress = 1.0
+
+[node name="CapyToParrot" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(184.031, 122.578)
+scale = Vector2(0.508203, 0.492014)
+sprite_frames = SubResource("SpriteFrames_axh4t")
+animation = &"capyToParrot"
+frame = 5
+frame_progress = 1.0
+
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(195, 137)
+scale = Vector2(1.67938, 1.49813)
+sprite_frames = SubResource("SpriteFrames_58hyf")
+animation = &"poofAnimation"
 
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="pressed" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_pressed"]

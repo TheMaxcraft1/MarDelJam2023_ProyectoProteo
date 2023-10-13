@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=71 format=3 uid="uid://m67xm0p2b4aw"]
 
 [ext_resource type="Script" path="res://Scripts/Water/WaterScene.gd" id="1_gqyed"]
 [ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
@@ -31,6 +31,22 @@
 [ext_resource type="Script" path="res://Scripts/Water/WaterDronMovement.gd" id="29_u6ek0"]
 [ext_resource type="AudioStream" uid="uid://bmbofp1gqr4o5" path="res://Sounds/HoverButtonSound.wav" id="30_dot1k"]
 [ext_resource type="AudioStream" uid="uid://y8ro6syqusd2" path="res://Sounds/ButtonPressedSound.wav" id="31_whhxn"]
+[ext_resource type="Texture2D" uid="uid://b5jhp1dskfmvt" path="res://Sprites/ParrotToTurtle/ptt_1.PNG" id="32_kpos6"]
+[ext_resource type="Texture2D" uid="uid://cu3gfdr4c4ig2" path="res://Sprites/ParrotToTurtle/ptt_2.PNG" id="33_ik50r"]
+[ext_resource type="Texture2D" uid="uid://b75nj2327gfjp" path="res://Sprites/ParrotToTurtle/ptt_3.PNG" id="34_dribk"]
+[ext_resource type="Texture2D" uid="uid://d08o3stqhx82j" path="res://Sprites/ParrotToTurtle/ptt_4.PNG" id="35_522es"]
+[ext_resource type="Texture2D" uid="uid://566m1dq7jg2d" path="res://Sprites/ParrotToTurtle/ptt_5.PNG" id="36_ifrn8"]
+[ext_resource type="Texture2D" uid="uid://cf8jlun8ag326" path="res://Sprites/ParrotToTurtle/ptt_6.PNG" id="37_tv81q"]
+[ext_resource type="Texture2D" uid="uid://d135popcbnna8" path="res://Sprites/CapyToTurtle/ctt_1.PNG" id="38_jku6h"]
+[ext_resource type="Texture2D" uid="uid://w6eolyxeegoi" path="res://Sprites/CapyToTurtle/ctt_2.PNG" id="39_dpxbj"]
+[ext_resource type="Texture2D" uid="uid://ba1gl3sl3asus" path="res://Sprites/CapyToTurtle/ctt_3.PNG" id="40_7vrps"]
+[ext_resource type="Texture2D" uid="uid://7e3gh4vx4mdb" path="res://Sprites/CapyToTurtle/ctt_4.PNG" id="41_0abh0"]
+[ext_resource type="Texture2D" uid="uid://c8sxurofx0loi" path="res://Sprites/CapyToTurtle/ctt_5.PNG" id="42_y1i8o"]
+[ext_resource type="Texture2D" uid="uid://nqv4arsoe8rl" path="res://Sprites/Poof/poof1.png" id="43_wgtph"]
+[ext_resource type="Texture2D" uid="uid://c8jrjhilveno" path="res://Sprites/Poof/poof2.png" id="44_77ghn"]
+[ext_resource type="Texture2D" uid="uid://cp4jt1t6h8ea" path="res://Sprites/Poof/poof3.png" id="45_lfhvw"]
+[ext_resource type="Texture2D" uid="uid://bddwlf6h5eu4n" path="res://Sprites/Poof/poof4.png" id="46_8gy0h"]
+[ext_resource type="Texture2D" uid="uid://c1nub8nhwnont" path="res://Sprites/Poof/poof4_5.png" id="47_lfmi5"]
 
 [sub_resource type="Animation" id="Animation_8o5jy"]
 resource_name = "Algae_Movement_Animation"
@@ -284,6 +300,78 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqllh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_kpos6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ik50r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_dribk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ifrn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_522es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_tv81q")
+}],
+"loop": false,
+"name": &"parrotToTurtle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvgh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_jku6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_dpxbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_7vrps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_0abh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_y1i8o")
+}],
+"loop": false,
+"name": &"capyToTurtle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abvpd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_wgtph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_77ghn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_lfhvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_8gy0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_lfmi5")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
+}]
+
 [node name="WaterScene" type="Node2D"]
 script = ExtResource("1_gqyed")
 
@@ -348,6 +436,7 @@ libraries = {
 }
 
 [node name="Player" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(152, 135)
 script = ExtResource("8_iuqln")
 
@@ -477,6 +566,30 @@ bus = &"SFX"
 process_mode = 3
 stream = ExtResource("31_whhxn")
 bus = &"SFX"
+
+[node name="ParrotToTurtle" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(157.492, 77.3047)
+scale = Vector2(0.997949, 0.975521)
+sprite_frames = SubResource("SpriteFrames_oqllh")
+animation = &"parrotToTurtle"
+frame = 5
+frame_progress = 1.0
+
+[node name="CapyToTurtle" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(158, 74)
+scale = Vector2(0.993685, 1.04971)
+sprite_frames = SubResource("SpriteFrames_pvgh2")
+animation = &"capyToTurtle"
+frame = 4
+frame_progress = 1.0
+
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(175, 117)
+scale = Vector2(2.16875, 1.75625)
+sprite_frames = SubResource("SpriteFrames_abvpd")
+animation = &"poofAnimation"
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/SpawnerTimer" to="ObstacleSpawner" method="_on_timer_timeout"]

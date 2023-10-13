@@ -1,10 +1,12 @@
 extends Node2D
 var scene_list = ["res://Scenes/WaterScene.tscn","res://Scenes/Sky/SkyScene.tscn"]
 var MAX_SCORE = 10
+var score
 var score_to_change = ScoreController.get_score() + MAX_SCORE
 var alive
 @onready var _animated_sprite = $DronAnimation
-@onready var transition = $Transition
+@onready var parrotToCapy = $ParrotToCapy
+@onready var turtleToCapy = $TurtleToCapy
 @onready var poof = $PoofAnimation
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,16 +16,16 @@ func _ready():
 	poof.play("poofAnimation")
 	$Player.canMove = false
 	if LastScene.lastScene=="parrot":
-		$Transition.set_visible(true)
-		transition.play("parrotToCapy")
+		$ParrotToCapy.set_visible(true)
+		parrotToCapy.play()
 	elif LastScene.lastScene=="turtle":
-		$Transition.set_visible(true)
-		transition.play("turtleToCapy")
+		$TurtleToCapy.set_visible(true)
+		turtleToCapy.play()
 	else:
-		$Transition.set_visible(false)
+		#$Transition.set_visible(false)
 		$Player.set_visible(true)
 		
-	
+	score=0
 	alive=true
 	LastScene.lastScene="capy"
 
@@ -35,8 +37,9 @@ func _process(delta):
 		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 	
-	if !$Transition.is_playing():
-		$Transition.set_visible(false)
+	if !$TurtleToCapy.is_playing() && !$ParrotToCapy.is_playing():
+		$TurtleToCapy.set_visible(false)
+		$ParrotToCapy.set_visible(false)
 		$Player.set_visible(true)
 	if !poof.is_playing():
 		$PoofAnimation.set_visible(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dnunqwdt5276c"]
+[gd_scene load_steps=80 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
 [ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
@@ -380,26 +380,6 @@ size = Vector2(510, 20)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("28_0kru7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_ax7h7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_28vym")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_1jsn7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_e0ho7")
-}],
-"loop": false,
-"name": &"parrotToCapy",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("33_6kyh3")
 }, {
 "duration": 1.0,
@@ -416,6 +396,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"turtleToCapy",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5br7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_e0ho7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_0kru7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ax7h7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_28vym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_1jsn7")
+}],
+"loop": false,
+"name": &"parrotToCapy",
 "speed": 5.0
 }]
 
@@ -703,12 +706,19 @@ stream = ExtResource("26_d7fhb")
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_48srv")
 
-[node name="Transition" type="AnimatedSprite2D" parent="."]
+[node name="TurtleToCapy" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(181, 136)
 scale = Vector2(1.02845, 1.03211)
 sprite_frames = SubResource("SpriteFrames_uj5r3")
-animation = &"new_animation"
+animation = &"turtleToCapy"
+
+[node name="ParrotToCapy" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(181.625, 138)
+scale = Vector2(0.984896, 1.01481)
+sprite_frames = SubResource("SpriteFrames_5br7r")
+animation = &"parrotToCapy"
 
 [node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(185, 186)

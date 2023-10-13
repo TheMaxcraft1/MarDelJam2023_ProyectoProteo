@@ -33,10 +33,11 @@ func _physics_process(delta):
 
 
 func _process(delta):
-	if get_parent().get_node("Transition").is_playing():
+	if get_parent().get_node("ParrotToCapy").is_playing() || get_parent().get_node("TurtleToCapy").is_playing():
 		canMove=false
 	else:
-		if get_parent().alive==true && ScoreController.get_score()!=10:
+		#await get_tree().create_timer(1).timeout
+		if get_parent().alive==true && get_parent().score<10:
 			canMove=true
 			
 	if 30>=position.y:
@@ -55,5 +56,6 @@ func _on_area_2d_area_entered(area):
 		get_parent().get_node("HUD/DeathMenu").set_visible(true)
 	elif area.get_name() == "ScoreArea":
 		scoreUpSound.play()
+		get_parent().score+=1
 		ScoreController.score_up()
 

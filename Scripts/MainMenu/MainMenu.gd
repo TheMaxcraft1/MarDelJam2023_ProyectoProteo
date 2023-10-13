@@ -26,6 +26,7 @@ func _on_opciones_button_pressed():
 
 func _on_jugar_button_pressed():
 	$ButtonPressed.play()
+	LastScene.lastScene=""
 	await $ButtonPressed.finished
 	#get_tree().change_scene_to_file(scene_list[randi() % scene_list.size()])
 	$CanvasLayer.set_visible(false)

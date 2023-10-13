@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://m67xm0p2b4aw"]
+[gd_scene load_steps=72 format=3 uid="uid://m67xm0p2b4aw"]
 
 [ext_resource type="Script" path="res://Scripts/Water/WaterScene.gd" id="1_gqyed"]
 [ext_resource type="Texture2D" uid="uid://r87mmej8jkx5" path="res://Sprites/Turtle/Turtle_1.PNG" id="2_01hcw"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://cp4jt1t6h8ea" path="res://Sprites/Poof/poof3.png" id="45_lfhvw"]
 [ext_resource type="Texture2D" uid="uid://bddwlf6h5eu4n" path="res://Sprites/Poof/poof4.png" id="46_8gy0h"]
 [ext_resource type="Texture2D" uid="uid://c1nub8nhwnont" path="res://Sprites/Poof/poof4_5.png" id="47_lfmi5"]
+[ext_resource type="Texture2D" uid="uid://dfheda8uprair" path="res://Sprites/Poof/poof5.png" id="48_o6b1n"]
 
 [sub_resource type="Animation" id="Animation_8o5jy"]
 resource_name = "Algae_Movement_Animation"
@@ -362,10 +363,13 @@ animations = [{
 "texture": ExtResource("45_lfhvw")
 }, {
 "duration": 1.0,
+"texture": ExtResource("47_lfmi5")
+}, {
+"duration": 1.0,
 "texture": ExtResource("46_8gy0h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("47_lfmi5")
+"texture": ExtResource("48_o6b1n")
 }],
 "loop": false,
 "name": &"poofAnimation",

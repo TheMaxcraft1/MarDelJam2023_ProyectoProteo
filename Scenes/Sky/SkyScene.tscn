@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://doynxgm3c2w2k"]
+[gd_scene load_steps=54 format=3 uid="uid://doynxgm3c2w2k"]
 
 [ext_resource type="Script" path="res://Scripts/Sky/SkyScene.gd" id="1_2s3p8"]
 [ext_resource type="Texture2D" uid="uid://cj2mswasb0op" path="res://Sprites/SkyScene/IMG_1325.PNG" id="2_ymd2s"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://cp4jt1t6h8ea" path="res://Sprites/Poof/poof3.png" id="46_65wk1"]
 [ext_resource type="Texture2D" uid="uid://bddwlf6h5eu4n" path="res://Sprites/Poof/poof4.png" id="47_wsmpv"]
 [ext_resource type="Texture2D" uid="uid://c1nub8nhwnont" path="res://Sprites/Poof/poof4_5.png" id="48_qel6c"]
+[ext_resource type="Texture2D" uid="uid://dfheda8uprair" path="res://Sprites/Poof/poof5.png" id="49_s5avh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7idt8"]
 animations = [{
@@ -140,10 +141,13 @@ animations = [{
 "texture": ExtResource("46_65wk1")
 }, {
 "duration": 1.0,
+"texture": ExtResource("48_qel6c")
+}, {
+"duration": 1.0,
 "texture": ExtResource("47_wsmpv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_qel6c")
+"texture": ExtResource("49_s5avh")
 }],
 "loop": false,
 "name": &"poofAnimation",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dnunqwdt5276c"]
+[gd_scene load_steps=79 format=3 uid="uid://dnunqwdt5276c"]
 
 [ext_resource type="Texture2D" uid="uid://dvmfwxv1263cm" path="res://Sprites/LandScene/Fondo.PNG" id="1_46u5k"]
 [ext_resource type="Script" path="res://Scenes/Land/LandScene.gd" id="1_xp7yj"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://biek2k3waapw2" path="res://Sprites/TurtleToCapy/ttc_5.PNG" id="37_1q4lv"]
 [ext_resource type="Texture2D" uid="uid://c1nub8nhwnont" path="res://Sprites/Poof/poof4_5.png" id="37_n8ed4"]
 [ext_resource type="Texture2D" uid="uid://b0alph1kf7cue" path="res://Sprites/Dron/IMG_1370.PNG" id="43_0abbd"]
+[ext_resource type="Texture2D" uid="uid://dfheda8uprair" path="res://Sprites/Poof/poof5.png" id="43_d4mwr"]
 [ext_resource type="Texture2D" uid="uid://c0nlxt5ru6yr8" path="res://Sprites/Dron/IMG_1371.PNG" id="44_wfin8"]
 [ext_resource type="Texture2D" uid="uid://bqsx7ci7c1t7l" path="res://Sprites/Dron/IMG_1372.PNG" id="45_bo4qv"]
 [ext_resource type="Texture2D" uid="uid://b0e2chbhrn4k0" path="res://Sprites/Dron/IMG_1373.PNG" id="46_cf0f0"]
@@ -431,10 +432,13 @@ animations = [{
 "texture": ExtResource("35_iukfu")
 }, {
 "duration": 1.0,
+"texture": ExtResource("37_n8ed4")
+}, {
+"duration": 1.0,
 "texture": ExtResource("36_aku07")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_n8ed4")
+"texture": ExtResource("43_d4mwr")
 }],
 "loop": false,
 "name": &"poofAnimation",
@@ -585,6 +589,7 @@ libraries = {
 }
 
 [node name="Player" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(181, 216)
 script = ExtResource("3_jq4ta")
 metadata/_edit_group_ = true
@@ -710,7 +715,7 @@ position = Vector2(185, 186)
 scale = Vector2(2.16875, 1.75625)
 sprite_frames = SubResource("SpriteFrames_ev0k7")
 animation = &"poofAnimation"
-frame = 4
+frame = 3
 frame_progress = 1.0
 
 [node name="DronAnimation" type="AnimatedSprite2D" parent="."]

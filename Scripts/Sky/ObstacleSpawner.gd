@@ -19,7 +19,9 @@ func _process(delta):
 func _on_timer_timeout():
 	if spawn:
 		var obstacle = Obstacle.instantiate()
-		obstacle.position.x=450
+		obstacle.position.x=400
 		obstacle.position.y=10+randi()%250
+		if obstacle.position.y<0:
+			obstacle.position.y=80
 		add_child(obstacle)
 		

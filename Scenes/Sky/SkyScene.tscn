@@ -1,17 +1,19 @@
-[gd_scene load_steps=54 format=3 uid="uid://doynxgm3c2w2k"]
+[gd_scene load_steps=56 format=3 uid="uid://doynxgm3c2w2k"]
 
 [ext_resource type="Script" path="res://Scripts/Sky/SkyScene.gd" id="1_2s3p8"]
 [ext_resource type="Texture2D" uid="uid://cj2mswasb0op" path="res://Sprites/SkyScene/IMG_1325.PNG" id="2_ymd2s"]
 [ext_resource type="Texture2D" uid="uid://denruidcvw28h" path="res://Sprites/SkyScene/IMG_1357.PNG" id="3_37h43"]
+[ext_resource type="Texture2D" uid="uid://p4ko6irl1673" path="res://Sprites/SkyScene/citydestroyed (1).png" id="3_knry7"]
 [ext_resource type="Script" path="res://Scripts/Sky/Background/CloudS3.gd" id="4_0xgef"]
+[ext_resource type="Script" path="res://Scripts/Sky/City.gd" id="4_3n2mt"]
 [ext_resource type="Texture2D" uid="uid://be6vrgceusv36" path="res://Sprites/SkyScene/IMG_1356.PNG" id="5_bf8ru"]
+[ext_resource type="Texture2D" uid="uid://3u601ujfnsb5" path="res://Sprites/SkyScene/city2 (1).png" id="5_pqf3m"]
 [ext_resource type="Script" path="res://Scripts/Sky/Background/TreeS1.gd" id="6_dsfjj"]
+[ext_resource type="Script" path="res://Scripts/Sky/City2.gd" id="6_j6xot"]
 [ext_resource type="Texture2D" uid="uid://cuwkf8pvxpck4" path="res://Sprites/SkyScene/IMG_1355.PNG" id="7_fbauu"]
 [ext_resource type="Script" path="res://Scripts/Sky/Background/TreeS2.gd" id="8_5r5f2"]
 [ext_resource type="Texture2D" uid="uid://bp58401yg4xmn" path="res://Sprites/SkyScene/IMG_1358.PNG" id="9_m84jf"]
 [ext_resource type="Script" path="res://Scripts/Sky/Background/CloudS2.gd" id="10_nrpyx"]
-[ext_resource type="Texture2D" uid="uid://csv28x2d1q54b" path="res://Sprites/SkyScene/IMG_1359.PNG" id="11_k24uc"]
-[ext_resource type="Script" path="res://Scripts/Sky/Background/CloudS1.gd" id="12_0t3bq"]
 [ext_resource type="PackedScene" uid="uid://dooamjcp0rkns" path="res://Scenes/Sky/SkyObstacles.tscn" id="13_fvrk1"]
 [ext_resource type="Texture2D" uid="uid://b0alph1kf7cue" path="res://Sprites/Dron/IMG_1370.PNG" id="14_3ihmy"]
 [ext_resource type="Texture2D" uid="uid://c0nlxt5ru6yr8" path="res://Sprites/Dron/IMG_1371.PNG" id="15_bo4no"]
@@ -164,28 +166,30 @@ offset_right = 477.0
 offset_bottom = 271.0
 texture = ExtResource("2_ymd2s")
 
+[node name="City" type="Sprite2D" parent="."]
+position = Vector2(240, 82.75)
+scale = Vector2(2.4, 1.9725)
+texture = ExtResource("3_knry7")
+script = ExtResource("4_3n2mt")
+
+[node name="City2" type="Sprite2D" parent="."]
+position = Vector2(768, 120)
+scale = Vector2(2.03, 2.05)
+texture = ExtResource("5_pqf3m")
+script = ExtResource("6_j6xot")
+
 [node name="Cloud" type="Sprite2D" parent="."]
 position = Vector2(293, 113)
 texture = ExtResource("3_37h43")
 script = ExtResource("4_0xgef")
 
-[node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(541, 156)
-texture = ExtResource("5_bf8ru")
-script = ExtResource("6_dsfjj")
-
-[node name="Tree2" type="Sprite2D" parent="Tree2"]
-position = Vector2(-159, -11)
-texture = ExtResource("7_fbauu")
-script = ExtResource("8_5r5f2")
-
 [node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(346, 138)
+position = Vector2(344, 160)
 texture = ExtResource("5_bf8ru")
 script = ExtResource("6_dsfjj")
 
-[node name="Tree2" type="Sprite2D" parent="Tree"]
-position = Vector2(-236, -3)
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(392, 160)
 texture = ExtResource("7_fbauu")
 script = ExtResource("8_5r5f2")
 
@@ -194,20 +198,11 @@ position = Vector2(214, 114)
 texture = ExtResource("9_m84jf")
 script = ExtResource("10_nrpyx")
 
-[node name="Cloud3" type="Sprite2D" parent="."]
-position = Vector2(357, 205)
-texture = ExtResource("3_37h43")
-script = ExtResource("4_0xgef")
-
-[node name="Cloud4" type="Sprite2D" parent="."]
-position = Vector2(230, 239)
-texture = ExtResource("11_k24uc")
-script = ExtResource("12_0t3bq")
-
 [node name="SpriteObs" parent="." instance=ExtResource("13_fvrk1")]
 position = Vector2(628, 167)
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource("18_bjdhc")]
+position = Vector2(672, 56)
 
 [node name="Player" parent="." instance=ExtResource("19_0n404")]
 visible = false

@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,6 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x-=40*delta
-	if position.x<-200:
-		position.x=800
+	if position.x<=-50:
+		get_parent().position.x=550

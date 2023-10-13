@@ -29,7 +29,7 @@ script/source = "extends CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	position.x -= 120 * delta
-	if position.x < -2000:
+	if position.x < -1500:
 		free()
 "
 
@@ -43,8 +43,8 @@ position = Vector2(129.344, -146.273)
 script = SubResource("GDScript_85owd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(31.5841, -8.35844)
-scale = Vector2(1.19223, 1.22023)
+position = Vector2(44.368, -13.9307)
+scale = Vector2(1.65754, 1.80584)
 texture = ExtResource("3_0a7ns")
 script = ExtResource("2_1qgt0")
 
@@ -60,9 +60,9 @@ position = Vector2(-225.6, -16.7169)
 [node name="Area2D3" type="Area2D" parent="." groups=["obstacle"]]
 position = Vector2(-1.50403, 1.39307)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Area2D3"]
-position = Vector2(31.5841, -8.35843)
-scale = Vector2(1.19223, 1.22023)
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+position = Vector2(44.368, -13.9307)
+scale = Vector2(1.65754, 1.80584)
 texture = ExtResource("3_0a7ns")
 script = ExtResource("2_1qgt0")
 

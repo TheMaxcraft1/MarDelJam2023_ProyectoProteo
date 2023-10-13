@@ -9,5 +9,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x-=110*delta
-	if position.x<=-300:
-		position.x=800
+	if position.x<-200:
+		position.x=470

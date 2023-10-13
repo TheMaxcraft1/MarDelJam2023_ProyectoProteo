@@ -5,8 +5,8 @@ var scoreUpSound
 var hitSound
 var canMove = false
 var dy = 0
-var GRAVITY = 25
-var MAXFALLSPEED = 45
+var GRAVITY = 13
+var MAXFALLSPEED = 40
 func _ready():
 	$Sprite.play("idle")
 	turtleSwimSound = get_parent().get_node("TurtleSwim")
@@ -18,7 +18,7 @@ func _physics_process(delta):
 		dy += GRAVITY * delta
 		if Input.is_action_just_pressed("WaterJump"):
 			turtleSwimSound.play()
-			dy -= 15
+			dy -= 10
 		
 
 		if dy > MAXFALLSPEED:

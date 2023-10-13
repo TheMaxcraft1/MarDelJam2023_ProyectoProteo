@@ -376,32 +376,6 @@ size = Vector2(77, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wff4f"]
 size = Vector2(510, 20)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ev0k7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("33_r4du1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_vy1tf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_iukfu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_n8ed4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_aku07")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_d4mwr")
-}],
-"loop": false,
-"name": &"poofAnimation",
-"speed": 10.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_uj5r3"]
 animations = [{
 "frames": [{
@@ -472,6 +446,32 @@ animations = [{
 "loop": true,
 "name": &"dronAnimation",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev0k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_r4du1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vy1tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_iukfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_n8ed4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_aku07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_d4mwr")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
 }]
 
 [node name="LandScene" type="Node2D"]
@@ -592,6 +592,7 @@ libraries = {
 }
 
 [node name="Player" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(181, 216)
 script = ExtResource("3_jq4ta")
 metadata/_edit_group_ = true
@@ -705,14 +706,6 @@ stream = ExtResource("26_d7fhb")
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_48srv")
 
-[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(185, 186)
-scale = Vector2(2.16875, 1.75625)
-sprite_frames = SubResource("SpriteFrames_ev0k7")
-animation = &"poofAnimation"
-frame = 3
-frame_progress = 1.0
-
 [node name="TurtleToCapy" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(181, 136)
@@ -732,6 +725,14 @@ position = Vector2(244, 109)
 sprite_frames = SubResource("SpriteFrames_t3jno")
 animation = &"dronAnimation"
 script = ExtResource("47_8skk0")
+
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(185, 186)
+scale = Vector2(2.16875, 1.75625)
+sprite_frames = SubResource("SpriteFrames_ev0k7")
+animation = &"poofAnimation"
+frame = 3
+frame_progress = 1.0
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="HUD/DeathMenu/TextureButton" to="." method="_on_texture_button_mouse_entered"]

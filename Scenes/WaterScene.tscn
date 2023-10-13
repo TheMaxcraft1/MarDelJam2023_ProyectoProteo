@@ -301,32 +301,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_abvpd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("43_wgtph")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_77ghn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_lfhvw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_lfmi5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_8gy0h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_o6b1n")
-}],
-"loop": false,
-"name": &"poofAnimation",
-"speed": 10.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqllh"]
 animations = [{
 "frames": [{
@@ -374,6 +348,32 @@ animations = [{
 "loop": false,
 "name": &"capyToTurtle",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abvpd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_wgtph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_77ghn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_lfhvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_lfmi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_8gy0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_o6b1n")
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 10.0
 }]
 
 [node name="WaterScene" type="Node2D"]
@@ -571,12 +571,6 @@ process_mode = 3
 stream = ExtResource("31_whhxn")
 bus = &"SFX"
 
-[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(175, 117)
-scale = Vector2(2.16875, 1.75625)
-sprite_frames = SubResource("SpriteFrames_abvpd")
-animation = &"poofAnimation"
-
 [node name="ParrotToTurtle" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(157.492, 77.3047)
@@ -594,6 +588,12 @@ sprite_frames = SubResource("SpriteFrames_pvgh2")
 animation = &"capyToTurtle"
 frame = 4
 frame_progress = 1.0
+
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(175, 117)
+scale = Vector2(2.16875, 1.75625)
+sprite_frames = SubResource("SpriteFrames_abvpd")
+animation = &"poofAnimation"
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ObstacleSpawner/SpawnerTimer" to="ObstacleSpawner" method="_on_timer_timeout"]
